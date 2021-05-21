@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+import datetime
+
 class Tournament:
 	"""docstrings"""
 
@@ -14,4 +16,7 @@ class Tournament:
 		self.list_players = ""
 		self.time = ""
 		self.description = ""
+
+	def creation_tournament(self):
+		pass
 
