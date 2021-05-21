@@ -7,3 +7,7 @@ class Player:
 		self.name = ""
 		self.first_name = ""
 		self.birth_date = ""
+		self.gender = ""
+		self.ranking = ""
+		self.score = ""
+		
