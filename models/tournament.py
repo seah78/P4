@@ -3,6 +3,8 @@
 
 import datetime
 
+DEFAULT_ROUNDS = 4
+
 class Tournament:
 	"""docstrings"""
 
@@ -11,7 +13,7 @@ class Tournament:
 		self.place = ""
 		self.start_date = ""
 		self.end_date = ""
-		self.number_rounds = 4
+		self.number_rounds=DEFAULT_ROUNDS
 		self.list_rounds = ""
 		self.list_players = ""
 		self.time = ""
