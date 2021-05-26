@@ -1,6 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+from models.tournament import Tournament
+from models.player import Player 
+
 class TournamentController:
 	pass
 

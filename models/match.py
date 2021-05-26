@@ -2,11 +2,11 @@
 # coding: utf-8
 
 class Match:
-	"""docstrings"""
+    """docstrings"""
 
-	def __init__(self):
-		self.white_player = ""
-		self.black_player = ""
-		self.white_score = ""
-		self.black_score = ""
-		self.ranking = ""
+    def __init__(self):
+        self.white_player = ""
+        self.black_player = ""
+        self.white_score = ""
+        self.black_score = ""
+        self.ranking = ""
