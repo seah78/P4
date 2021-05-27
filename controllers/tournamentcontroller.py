@@ -35,18 +35,21 @@ class TournamentMenuController:
 class CreationTournamentMenuController:
     def __call__(self):
         print("dans le menu de creation")
-        return HomeMenuController()
+        return TournamentMenuController()
 
 
 class ListTournamentMenuController:
     def __call__(self):
         print("dans la liste des tournois")
-        return HomeMenuController()
+        return TournamentMenuController()
 
 
-class RankingController:
+class RankingTournamentController:
     pass
 
+
+class TimerTournamentController:
+    pass
 
 class EndScreenController:
     def __call__(self):
