@@ -5,36 +5,24 @@ from models.tournament import Tournament
 from models.player import Player 
 
 class TournamentController:
-	pass
-
-
-
-
-
-"""
-from ..utils.menus import Menu
-from ..views import HomeMenuView
-
-
-class ApplicationController:
     def __init__(self):
         self.controller = None
 
     def start(self):
-        self.controller = HomeMenuController()
+        self.controller = TournamentMenuController()
         while self.controller:
-            self.controller = self.controller()
+            self.controller = self.controller()    
 
 
-class HomeMenuController:
+class TournamentMenuController:
     def __init__(self):
         self.menu = Menu()
         self.view = HomeMenuView(self.menu)
 
     def __call__(self):
         # 1. Construire un menu
-        self.menu.add("auto", "se connecter", ConnectionMenuController())
-        self.menu.add("auto", "commencer une partie", NewGameController())
+        self.menu.add("auto", "Creer un tournoi", CreationTournamentMenuController())
+        self.menu.add("auto", "Liste des tournois", ListTournamentController())
         self.menu.add("q", "quitter", EndScreenController())
 
         # 2. Demander à la vue d'afficher le menu et de collecter la réponse de l'utilisateur
@@ -44,24 +32,16 @@ class HomeMenuController:
         return user_choice.handler
 
 
-class ConnectionMenuController:
+class CreationTournamentMenuController:
     def __call__(self):
-        print("dans le controleur de connection")
+        print("dans le menu de creation")
         return HomeMenuController()
 
 
-class SignupMenuController:
-    pass
-
-
-class NewGameController:
+class ListTournamentMenuController:
     def __call__(self):
-        print("dans le controleur de nouvelle partie")
-        return EndScreenController()
-
-
-class OngoingGameController:
-    pass
+        print("dans la liste des tournois")
+        return HomeMenuController()
 
 
 class RankingController:
@@ -70,4 +50,8 @@ class RankingController:
 
 class EndScreenController:
     def __call__(self):
-        print("dans le controleur de fin: bye bye")	
+        print("A une prochaine !")
+
+
+
+
