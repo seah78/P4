@@ -14,3 +14,8 @@ class Round:
         self.ranking_list = ""
         self.match_list = ""
 
+    def appariement(self):
+        pass
+
+    def timestamp(self):
+        pass

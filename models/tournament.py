@@ -22,3 +22,12 @@ class Tournament:
     def creation_tournament(self):
         pass
 
+	def add_player(self):
+		pass
+
+	def add_round(self):
+		pass
+
+	def order_ranking_player(self):
+		pass
+

@@ -10,3 +10,9 @@ class Match:
         self.white_score = ""
         self.black_score = ""
         self.ranking = ""
+
+    def add_ranking(self):
+        pass
+
+    def add_score(self):
+        pass

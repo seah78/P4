@@ -22,5 +22,11 @@ class Player:
         else:
             return datetime.date.today().year - self.birth_date.year
 
+    def update_ranking(self):
+        pass
+
+    def update_score(self):
+        pass
+
 
 
