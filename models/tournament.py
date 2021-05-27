@@ -20,14 +20,27 @@ class Tournament:
         self.description = ""
 
     def creation_tournament(self):
-        pass
+        
 
-	def add_player(self):
-		pass
+"""
+    def reload_tounament(self):
+        pass
+"""
+
+
+
+	def add_player(self, player):
+		self.list_players.append(player)
+
+
 
 	def add_round(self):
 		pass
 
+
+
+
+"""
 	def order_ranking_player(self):
 		pass
-
+"""

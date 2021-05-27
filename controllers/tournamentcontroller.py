@@ -5,6 +5,23 @@ from models.tournament import Tournament
 from models.player import Player 
 
 class TournamentController:
+
+créer une liste de player
+créer le tournoi avec la liste de player
+lancer les rondes et le matchs
+
+
+
+
+
+
+
+
+
+
+
+
+"""
     def __init__(self):
         self.controller = None
 
@@ -58,3 +75,4 @@ class EndScreenController:
 
 
 
+"""
