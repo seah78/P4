@@ -6,7 +6,7 @@ import datetime
 class Player:
     """ Joueur """
 
-    def __init__(self, name, first_name, birth_date, gender, ranking, score=0):
+    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking=0, score=0):
         self.name = name
         self.first_name = first_name
         self.birth_date = birth_date
@@ -16,11 +16,13 @@ class Player:
 
 
     """ Calcul de l'age"""
+    """
     def age(self):
         if self.birth_date > datetime.date.today().replace(year = self.birth_date.year):
             return datetime.date.today().year - self.birth_date.year - 1
         else:
-            return datetime.date.today().year - self.birth_date.year
+             return datetime.date.today().year - self.birth_date.year
+    """
 
     def update_ranking(self):
         pass

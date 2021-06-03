@@ -4,11 +4,29 @@
 from models.tournament import Tournament
 from models.player import Player 
 
-class TournamentController:
-
+"""
 créer une liste de player
 créer le tournoi avec la liste de player
 lancer les rondes et le matchs
+"""
+
+
+class TournamentController:
+
+    def __init__(self):
+        self.tournament = Tournament()
+
+    def creation_tournament(self, players):
+        self.tournament.name = "Tournoi test"
+        for player in players:
+            self.tournament.add_player(player)
+
+    def print_list_player_tournament(self):
+        print(self.tournament.name)
+        for player in self.tournament.list_players:
+            print(player)
+
+            #créer un affichage sous-forme de tableau
 
 
 
