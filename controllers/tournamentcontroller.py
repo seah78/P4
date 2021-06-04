@@ -14,22 +14,29 @@ lancer les rondes et le matchs
 class TournamentController:
 
     def __init__(self):
-        self.tournament = Tournament()
+        self.tournament = None
 
-    def creation_tournament(self, players):
-        self.tournament.name = "Tournoi test"
-        for player in players:
-            self.tournament.add_player(player)
-
-    def print_list_player_tournament(self):
-        print(self.tournament.name)
-        for player in self.tournament.list_players:
-            print(player)
-
-            #créer un affichage sous-forme de tableau
+    def new_tournament(self):
+        name = self.get_tournament_name()
+        tournament = Tournament()
+        
+        
 
 
+    def get_tournament_name(self):
+        name = TournamentView.get_name()
+        while not name.isalpha():
+            get_message_error()
+            TournamentView.get_message_error()
+            name = TournamentView.get_name()
+        return name
 
+
+
+
+
+
+# Recherche sur la fonction zip
 
 
 

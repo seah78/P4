@@ -4,8 +4,8 @@
 
 class PlayerView:
 
-    def information_player(self):
-        """Information sur le joueur"""
+    @staticmethod
+    def get_name_player():
+        """nom du joueur"""
         name = input("Saisissez le nom du joueur : ")
-        elo = input("Saisissez le classement Elo du : ")
 

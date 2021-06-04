@@ -6,13 +6,20 @@ import datetime
 class Player:
     """ Joueur """
 
-    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking=0, score=0):
+    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking_elo=0, score=0):
         self.name = name
         self.first_name = first_name
         self.birth_date = birth_date
         self.gender = gender
-        self.ranking = ranking
+        self.ranking_elo = ranking_elo
         self.score = score
+
+    def __str__(self):
+        output = f"Nom : {self.name} /n
+                    Prénom : {self.first_name} /n
+                    Date de naissance : {self.birth_date} /n
+                    Sexe : {self.gender} /n
+                    Classement Elo : {self.ranking_elo}"
 
 
     """ Calcul de l'age"""

@@ -2,9 +2,20 @@
 # coding: utf-8
 
 class TournamentView:
-	pass
+	
+    @staticmethod
+    def get_name():
+        name = input("Entrer le nom du tournoi : ")
+        return name
+
+    @staticmethod
+    def get_message_error():
+        print("Entrez une valeur alphabétique")
 
 
+
+
+        
 """
 class MenuEntry:
     def __init__(self, option, handler):
