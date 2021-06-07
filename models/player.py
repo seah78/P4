@@ -15,10 +15,10 @@ class Player:
         self.score = score
 
     def __str__(self):
-        output = f"Nom : {self.name} /n
-                    Prénom : {self.first_name} /n
-                    Date de naissance : {self.birth_date} /n
-                    Sexe : {self.gender} /n
+        output = f"Nom : {self.name} \n
+                    Prénom : {self.first_name} \n
+                    Date de naissance : {self.birth_date} \n
+                    Sexe : {self.gender} \n
                     Classement Elo : {self.ranking_elo}"
 
 

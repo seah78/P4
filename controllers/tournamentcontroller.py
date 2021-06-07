@@ -23,23 +23,33 @@ class TournamentController:
         name = self.get_tournament_name()
         place = self.get_tournament_place()
 
-        for player in range(DEFAULT_PLAYERS):
-            name = self
-            elo = ...
-            player = Player(name, elo)
+        for counter in range(DEFAULT_PLAYERS):
+            name = self.get_player_name()
+            first_name = self.get_player_first_name()
+            birth_date = self.get_player_birth_date()
+            gender = self.get_player_gender()
+            ranking_elo = self.get_player_ranking_elo()
+            
+            player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
+        
+        start_date = ""
+        end_date = ""
+        time = ""
+        description = ""
 
-        tournament = Tournament()
+        tournament = Tournament(name, place, start_date, end_date, time, description)
+        return tournament
         
     def get_tournament_name(self):
-        name = TournamentView.get_name()
+        name = TournamentView.get_name_tournament()
         while not name.isalpha():
             ErrorManagement.get_alpha_message_error("Nom")
             name = TournamentView.get_name()
         return name
 
     def get_tournament_place(self):
-        place = TournamentView.get_place()
+        place = TournamentView.get_place_tournament()
         while not place.isalpha():
             ErrorManagement.get_alpha_message_error("Lieu")
             place = TournamentView.get_name()
@@ -52,7 +62,45 @@ class TournamentController:
             name = TournamentView.get_name()
         return name
 
+    def get_player_first_name(self):
+        first_name = PlayerView.get_first_name_player()
+        while not first_name.isalpha():
+            ErrorManagement.get_alpha_message_error("Prénom")
+            first_name = TournamentView.get_name()
+        return first_name
 
+    def get_player_birth_date(self):
+        pass
+    """
+        birth_date = PlayerView.get_birth_date_player()
+        while not birth_date.isalpha():
+            ErrorManagement.get_date_message_error()
+            name = TournamentView.get_name()
+        return name
+"""
+    def get_player_gender(self):
+        pass
+        """
+        gender = PlayerView.get_gender_player()
+        while not gender.isalpha():
+            ErrorManagement.get_alpha_message_error("Nom")
+            gender = TournamentView.get_name()
+        return gender
+        """
+
+    def get_player_ranking_elo(self):
+        pass
+    """
+        ranking_elo = PlayerView.get_ranking_elo_player()
+        while not name.isalpha():
+            ErrorManagement.get_alpha_message_error("Nom")
+            ranking_elo = TournamentView.get_name()
+        return ranking_elo
+"""
+
+    def display_tournament(self):
+        
+        pass
 
 
 # Recherche sur la fonction zip
