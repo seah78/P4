@@ -7,10 +7,13 @@ class TournamentView:
     def get_name():
         name = input("Entrer le nom du tournoi : ")
         return name
-
+	
     @staticmethod
-    def get_message_error():
-        print("Entrez une valeur alphabétique")
+    def get_place():
+        place = input("Entrer le lieu du tournoi : ")
+        return place
+
+
 
 
 

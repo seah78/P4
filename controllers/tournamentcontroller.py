@@ -2,14 +2,17 @@
 # coding: utf-8
 
 from models.tournament import Tournament
-from models.player import Player 
+from models.player import Player
+import views.tournamentview
+import views.playerview 
+import utils.errormanagement
 
 """
 créer une liste de player
 créer le tournoi avec la liste de player
 lancer les rondes et le matchs
 """
-
+DEFAULT_PLAYERS = 8
 
 class TournamentController:
 
@@ -18,20 +21,36 @@ class TournamentController:
 
     def new_tournament(self):
         name = self.get_tournament_name()
+        place = self.get_tournament_place()
+
+        for player in range(DEFAULT_PLAYERS):
+            name = self
+            elo = ...
+            player = Player(name, elo)
+            self.tournament.add_player(player)
+
         tournament = Tournament()
         
-        
-
-
     def get_tournament_name(self):
         name = TournamentView.get_name()
         while not name.isalpha():
-            get_message_error()
-            TournamentView.get_message_error()
+            ErrorManagement.get_alpha_message_error("Nom")
             name = TournamentView.get_name()
         return name
 
+    def get_tournament_place(self):
+        place = TournamentView.get_place()
+        while not place.isalpha():
+            ErrorManagement.get_alpha_message_error("Lieu")
+            place = TournamentView.get_name()
+        return place
 
+    def get_player_name(self):
+        name = PlayerView.get_name_player()
+        while not name.isalpha():
+            ErrorManagement.get_alpha_message_error("Nom")
+            name = TournamentView.get_name()
+        return name
 
 
 

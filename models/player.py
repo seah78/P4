@@ -37,5 +37,3 @@ class Player:
     def update_score(self):
         pass
 
-
-

@@ -8,4 +8,5 @@ class PlayerView:
     def get_name_player():
         """nom du joueur"""
         name = input("Saisissez le nom du joueur : ")
-
+        return name
+    
