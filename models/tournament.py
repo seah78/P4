@@ -19,9 +19,6 @@ class Tournament:
         self.time = time
         self.description = description
 
-    def creation_tournament(self):
-        pass
-
     def add_player(self, player):
         self.list_players.append(player)
 

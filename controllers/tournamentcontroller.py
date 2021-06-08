@@ -17,6 +17,7 @@ lancer les rondes et le matchs
 DEFAULT_PLAYERS = 8
 
 class TournamentController:
+    """Gestion du tournoi"""
 
     def __init__(self):
         self.tournament = None
@@ -24,24 +25,22 @@ class TournamentController:
     def new_tournament(self):
         name = self.get_tournament_name()
         place = self.get_tournament_place()
+        start_date = ""
+        end_date = ""
+        time = ""
+        description = ""
+        self.tournament = Tournament(name, place)
 
         for counter in range(DEFAULT_PLAYERS):
+            PlayerView.display_counter_player(counter)
             name = self.get_player_name()
             first_name = self.get_player_first_name()
             birth_date = self.get_player_birth_date()
             gender = self.get_player_gender()
             ranking_elo = self.get_player_ranking_elo()
-            
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
         
-        start_date = ""
-        end_date = ""
-        time = ""
-        description = ""
-
-        tournament = Tournament(name, place, start_date, end_date, time, description)
-        return tournament
         
     def get_tournament_name(self):
         name = TournamentView.get_name_tournament()
@@ -73,13 +72,14 @@ class TournamentController:
 
     def get_player_birth_date(self):
         pass
-    """
+        """
         birth_date = PlayerView.get_birth_date_player()
         while not birth_date.isalpha():
             ErrorManagement.get_date_message_error()
             name = TournamentView.get_name()
         return name
-"""
+        """
+
     def get_player_gender(self):
         pass
         """
@@ -92,13 +92,13 @@ class TournamentController:
 
     def get_player_ranking_elo(self):
         pass
-    """
+        """
         ranking_elo = PlayerView.get_ranking_elo_player()
         while not name.isalpha():
             ErrorManagement.get_alpha_message_error("Nom")
             ranking_elo = TournamentView.get_name()
         return ranking_elo
-"""
+        """
 
     def display_tournament(self):
         pass

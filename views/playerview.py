@@ -34,3 +34,10 @@ class PlayerView:
         """classement elo du joueur"""
         ranking_elo = input("Saisissez le classement elo du joueur : ")
         return ranking_elo    
+
+    @staticmethod
+    def display_counter_player(counter):
+        """affiche le numéro du joueur pour l'ajout"""
+        counter += 1
+        print(f"Ajout du joueur {counter}")
+    
