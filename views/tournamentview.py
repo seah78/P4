@@ -72,3 +72,5 @@ if __name__ == "__main__":
     menu.add("auto", "seconde option du menu", lambda: None)
     menu.add("q", "dernière option du menu", lambda: None)
     print(menu._entries)
+
+"""

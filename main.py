@@ -10,4 +10,4 @@ from controllers.tournamentcontroller import TournamentController
 
 start = TournamentController()
 start.new_tournament()
-start.print_tournament()
+#start.display_tournament()

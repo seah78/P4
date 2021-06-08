@@ -3,9 +3,11 @@
 
 from models.tournament import Tournament
 from models.player import Player
-import views.tournamentview
-import views.playerview 
-import utils.errormanagement
+
+from views.tournamentview import TournamentView
+from views.playerview import PlayerView 
+from utils.errormanagement import ErrorManagement
+
 
 """
 créer une liste de player
@@ -45,28 +47,28 @@ class TournamentController:
         name = TournamentView.get_name_tournament()
         while not name.isalpha():
             ErrorManagement.get_alpha_message_error("Nom")
-            name = TournamentView.get_name()
+            name = TournamentView.get_name_tournament()
         return name
 
     def get_tournament_place(self):
         place = TournamentView.get_place_tournament()
         while not place.isalpha():
             ErrorManagement.get_alpha_message_error("Lieu")
-            place = TournamentView.get_name()
+            place = TournamentView.get_place_tournament()
         return place
 
     def get_player_name(self):
         name = PlayerView.get_name_player()
         while not name.isalpha():
             ErrorManagement.get_alpha_message_error("Nom")
-            name = TournamentView.get_name()
+            name = PlayerView.get_name_player()
         return name
 
     def get_player_first_name(self):
         first_name = PlayerView.get_first_name_player()
         while not first_name.isalpha():
             ErrorManagement.get_alpha_message_error("Prénom")
-            first_name = TournamentView.get_name()
+            first_name = PlayerView.get_first_name_player()
         return first_name
 
     def get_player_birth_date(self):
@@ -99,7 +101,6 @@ class TournamentController:
 """
 
     def display_tournament(self):
-        
         pass
 
 
