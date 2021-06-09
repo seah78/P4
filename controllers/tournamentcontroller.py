@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+import datetime
+
 from models.tournament import Tournament
 from models.player import Player
 
@@ -25,11 +27,11 @@ class TournamentController:
     def new_tournament(self):
         name = self.get_tournament_name()
         place = self.get_tournament_place()
-        start_date = ""
-        end_date = ""
-        time = ""
-        description = ""
-        self.tournament = Tournament(name, place)
+        start_date = self.get_tournament_start_date()
+        end_date = self.get_tournament_end_date()
+        time = self.get_tournament_time()
+        description = self.get_tournament_description()
+        self.tournament = Tournament(name, place, start_date, end_date, time, description)
 
         for counter in range(DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
@@ -40,8 +42,7 @@ class TournamentController:
             ranking_elo = self.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
-        
-        
+              
     def get_tournament_name(self):
         name = TournamentView.get_name_tournament()
         while not name.isalpha():
@@ -55,6 +56,18 @@ class TournamentController:
             ErrorManagement.get_alpha_message_error("Lieu")
             place = TournamentView.get_place_tournament()
         return place
+
+    def get_tournament_start_date(self):
+        pass
+
+    def get_tournament_end_date(self):
+        pass
+
+    def get_tournament_time(self):
+        pass
+
+    def get_tournament_description(self):
+        pass
 
     def get_player_name(self):
         name = PlayerView.get_name_player()
@@ -71,14 +84,16 @@ class TournamentController:
         return first_name
 
     def get_player_birth_date(self):
-        pass
-        """
         birth_date = PlayerView.get_birth_date_player()
+        day, month, year = map(int, birth_date.split('/'))
+        birth_date = datetime.date(year, month, day)
         while not birth_date.isalpha():
             ErrorManagement.get_date_message_error()
-            name = TournamentView.get_name()
-        return name
-        """
+            birth_date = PlayerView.get_birth_date_player()
+        return birth_date
+
+
+        
 
     def get_player_gender(self):
         pass
