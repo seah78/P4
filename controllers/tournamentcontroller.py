@@ -8,7 +8,7 @@ from models.player import Player
 
 from views.tournamentview import TournamentView
 from views.playerview import PlayerView 
-from utils.errormanagement import ErrorManagement
+from views.errorview import ErrorView
 
 
 """
@@ -46,22 +46,40 @@ class TournamentController:
     def get_tournament_name(self):
         name = TournamentView.get_name_tournament()
         while not name.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
+            ErrorView.get_alpha_message_error("Nom")
             name = TournamentView.get_name_tournament()
         return name
 
     def get_tournament_place(self):
         place = TournamentView.get_place_tournament()
         while not place.isalpha():
-            ErrorManagement.get_alpha_message_error("Lieu")
+            ErrorView.get_alpha_message_error("Lieu")
             place = TournamentView.get_place_tournament()
         return place
 
     def get_tournament_start_date(self):
-        pass
+        loop_valid_date = False
+        while loop_valid_date == False:
+            start_date = TournamentView.get_start_date_tournament()
+            try:
+                start_date = datetime.datetime.strptime(start_date, '%d-%m-%Y')
+                loop_valid_date = True
+            except ValueError:
+                ErrorView.get_date_message_error()
+                loop_valid_date = False
+        return start_date
 
     def get_tournament_end_date(self):
-        pass
+        loop_valid_date = False
+        while loop_valid_date == False:
+            start_date = TournamentView.get_end_date_tournament()
+            try:
+                start_date = datetime.datetime.strptime(start_date, '%d-%m-%Y')
+                loop_valid_date = True
+            except ValueError:
+                ErrorView.get_date_message_error()
+                loop_valid_date = False
+        return start_date
 
     def get_tournament_time(self):
         pass
@@ -72,25 +90,30 @@ class TournamentController:
     def get_player_name(self):
         name = PlayerView.get_name_player()
         while not name.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
+            ErrorView.get_alpha_message_error("Nom")
             name = PlayerView.get_name_player()
         return name
 
     def get_player_first_name(self):
         first_name = PlayerView.get_first_name_player()
         while not first_name.isalpha():
-            ErrorManagement.get_alpha_message_error("Prénom")
+            ErrorView.get_alpha_message_error("Prénom")
             first_name = PlayerView.get_first_name_player()
         return first_name
 
     def get_player_birth_date(self):
-        birth_date = PlayerView.get_birth_date_player()
-        day, month, year = map(int, birth_date.split('/'))
-        birth_date = datetime.date(year, month, day)
-        while not birth_date.isalpha():
-            ErrorManagement.get_date_message_error()
+        loop_valid_date = False
+        while loop_valid_date == False:
             birth_date = PlayerView.get_birth_date_player()
+            try:
+                birth_date = datetime.datetime.strptime(birth_date, '%d-%m-%Y')
+                loop_valid_date = True
+            except ValueError:
+                ErrorView.get_date_message_error()
+                loop_valid_date = False
         return birth_date
+
+
 
 
         

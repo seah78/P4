@@ -20,7 +20,7 @@ class PlayerView:
     @staticmethod
     def get_birth_date_player():
         """date de naissance du joueur"""
-        birth_date = input("Saisissez la date de naissance du joueur (jj/mm/aaaa): ")
+        birth_date = input("Saisissez la date de naissance du joueur (jj-mm-aaaa): ")
         return birth_date    
     
     @staticmethod

@@ -17,6 +17,18 @@ class TournamentView:
         return place
 
     @staticmethod
+    def get_start_date_tournament():
+        """saisie de la date de début du tournoi"""
+        start_date = input("Saisissez la date de début de tournoi (jj-mm-aaaa): ")
+        return start_date
+
+    @staticmethod
+    def get_end_date_tournament():
+        """saisie de la date de fin du tournoi"""
+        end_date = input("Saisissez la date de fin de tournoi (jj-mm-aaaa): ")
+        return end_date        
+
+    @staticmethod
     def display_name_tournament(name):
         """affichage du nom du tournoi"""
         print(f"Nom du tournoi : {name}")
