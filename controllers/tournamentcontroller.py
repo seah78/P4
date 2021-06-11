@@ -3,6 +3,8 @@
 
 import datetime
 
+from controllers.playercontroller import PlayerController
+
 import utils.constants as constant
 
 from models.tournament import Tournament
@@ -37,11 +39,11 @@ class TournamentController:
 
         for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
-            name = self.get_player_name()
-            first_name = self.get_player_first_name()
-            birth_date = self.get_player_birth_date()
-            gender = self.get_player_gender()
-            ranking_elo = self.get_player_ranking_elo()
+            name = PlayerController.get_player_name()
+            first_name = PlayerController.get_player_first_name()
+            birth_date = PlayerController.get_player_birth_date()
+            gender = PlayerController.get_player_gender()
+            ranking_elo = PlayerController.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
 
@@ -107,56 +109,11 @@ class TournamentController:
         description = TournamentView.get_description_tournament()
         return description
 
-    def get_player_name(self):
-        name = PlayerView.get_name_player()
-        while not name.isalpha():
-            ErrorView.get_alpha_message_error("Nom")
-            name = PlayerView.get_name_player()
-        return name
-
-    def get_player_first_name(self):
-        first_name = PlayerView.get_first_name_player()
-        while not first_name.isalpha():
-            ErrorView.get_alpha_message_error("Prénom")
-            first_name = PlayerView.get_first_name_player()
-        return first_name
-
-    def get_player_birth_date(self):
-        loop_valid_date = False
-        while loop_valid_date == False:
-            birth_date = PlayerView.get_birth_date_player()
-            try:
-                birth_date = datetime.datetime.strptime(birth_date, '%d-%m-%Y')
-                loop_valid_date = True
-            except ValueError:
-                ErrorView.get_date_message_error()
-                loop_valid_date = False
-        return birth_date
 
 
- 
 
-        
 
-    def get_player_gender(self):
-        pass
-        """
-        gender = PlayerView.get_gender_player()
-        while not gender.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
-            gender = TournamentView.get_name()
-        return gender
-        """
 
-    def get_player_ranking_elo(self):
-        pass
-        """
-        ranking_elo = PlayerView.get_ranking_elo_player()
-        while not name.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
-            ranking_elo = TournamentView.get_name()
-        return ranking_elo
-        """
 
     def display_tournament(self):
         pass

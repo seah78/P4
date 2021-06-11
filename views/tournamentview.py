@@ -37,7 +37,7 @@ class TournamentView:
     @staticmethod
     def get_description_tournament():
         """saisie de la description du tournoi"""
-        description = int(input("Saisissez la description du tournoi :"))
+        description = str(input("Saisissez la description du tournoi :"))
         return description             
       
 
