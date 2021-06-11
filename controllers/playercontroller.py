@@ -8,12 +8,11 @@ from models.player import Player
 from views.playerview import PlayerView 
 from views.errorview import ErrorView
 
-
-    
     
 class PlayerController:    
 
     def get_player_name():
+        """Récupération du nom du joueur"""
         name = PlayerView.get_name_player()
         while not name.isalpha():
             ErrorView.get_alpha_message_error("Nom")
@@ -21,6 +20,7 @@ class PlayerController:
         return name
 
     def get_player_first_name():
+        """Récupération du prénom du joueur"""
         first_name = PlayerView.get_first_name_player()
         while not first_name.isalpha():
             ErrorView.get_alpha_message_error("Prénom")
@@ -28,6 +28,7 @@ class PlayerController:
         return first_name
 
     def get_player_birth_date():
+        """Récupération de la date de naissance"""
         loop_valid_date = False
         while loop_valid_date == False:
             birth_date = PlayerView.get_birth_date_player()
@@ -39,12 +40,8 @@ class PlayerController:
                 loop_valid_date = False
         return birth_date
 
-
- 
-
-        
-
     def get_player_gender():
+        """Récupération du sexe"""
         pass
         """
         gender = PlayerView.get_gender_player()
@@ -55,6 +52,8 @@ class PlayerController:
         """
 
     def get_player_ranking_elo():
+        """Récupération du classement elo"""
+        
         pass
         """
         ranking_elo = PlayerView.get_ranking_elo_player()
