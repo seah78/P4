@@ -42,23 +42,21 @@ class PlayerController:
 
     def get_player_gender():
         """Récupération du sexe"""
-        pass
-        """
         gender = PlayerView.get_gender_player()
-        while not gender.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
-            gender = TournamentView.get_name()
+        while gender != "M" or gender != "F":
+            ErrorView.get_gender_message_error()
+            gender = PlayerView.get_gender_player()
         return gender
-        """
 
     def get_player_ranking_elo():
         """Récupération du classement elo"""
-        
-        pass
-        """
-        ranking_elo = PlayerView.get_ranking_elo_player()
-        while not name.isalpha():
-            ErrorManagement.get_alpha_message_error("Nom")
-            ranking_elo = TournamentView.get_name()
+        while True:
+            try:
+                ranking_elo = PlayerView.get_ranking_elo_player()
+                if not ranking_elo > 0:
+                    raise ValueError
+            except ValueError:
+                ErrorView.get_int_message_error("Classement Elo")
+            else:
+                break
         return ranking_elo
-        """

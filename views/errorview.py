@@ -15,3 +15,7 @@ class ErrorView:
     @staticmethod
     def get_int_message_error(value):
         print(f"L'entrée '{value}' doit être un entier numérique")
+
+    @staticmethod
+    def get_gender_message_error():
+        print("Indiquez le sexe par M ou F")
