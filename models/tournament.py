@@ -8,7 +8,7 @@ DEFAULT_ROUNDS = 4
 class Tournament:
     """docstrings"""
 
-    def __init__(self, name=None, place=None, start_date=None, end_date=None, time=None, description=None):
+    def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, description=None):
         self.name = name
         self.place = place
         self.start_date = start_date
@@ -16,7 +16,7 @@ class Tournament:
         self.number_rounds=DEFAULT_ROUNDS
         self.list_rounds = []
         self.list_players = []
-        self.time = time
+        self.match_time = match_time
         self.description = description
 
     def add_player(self, player):

@@ -26,7 +26,20 @@ class TournamentView:
     def get_end_date_tournament():
         """saisie de la date de fin du tournoi"""
         end_date = input("Saisissez la date de fin de tournoi (jj-mm-aaaa): ")
-        return end_date        
+        return end_date  
+
+    @staticmethod
+    def get_match_time_tournament():
+        """saisie de la durée d'un match pour le tournoi"""
+        match_time = int(input("Saisissez le numéro de la durée d'un match (1 - Bullet, 2 - Blitz, 3 - Coup rapide) :"))
+        return match_time
+
+    @staticmethod
+    def get_description_tournament():
+        """saisie de la description du tournoi"""
+        description = int(input("Saisissez la description du tournoi :"))
+        return description             
+      
 
     @staticmethod
     def display_name_tournament(name):

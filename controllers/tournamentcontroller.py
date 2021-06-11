@@ -3,6 +3,8 @@
 
 import datetime
 
+import utils.constants as constant
+
 from models.tournament import Tournament
 from models.player import Player
 
@@ -16,7 +18,6 @@ créer une liste de player
 créer le tournoi avec la liste de player
 lancer les rondes et le matchs
 """
-DEFAULT_PLAYERS = 8
 
 class TournamentController:
     """Gestion du tournoi"""
@@ -25,6 +26,7 @@ class TournamentController:
         self.tournament = None
 
     def new_tournament(self):
+        """creation d'un tournoi"""
         name = self.get_tournament_name()
         place = self.get_tournament_place()
         start_date = self.get_tournament_start_date()
@@ -33,7 +35,7 @@ class TournamentController:
         description = self.get_tournament_description()
         self.tournament = Tournament(name, place, start_date, end_date, time, description)
 
-        for counter in range(DEFAULT_PLAYERS):
+        for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
             name = self.get_player_name()
             first_name = self.get_player_first_name()
@@ -42,8 +44,11 @@ class TournamentController:
             ranking_elo = self.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
-              
+
+        #for counter in range(constant.DEFAULT_ROUNDS):
+
     def get_tournament_name(self):
+        """recupération du nom du tournoi"""
         name = TournamentView.get_name_tournament()
         while not name.isalpha():
             ErrorView.get_alpha_message_error("Nom")
@@ -51,6 +56,7 @@ class TournamentController:
         return name
 
     def get_tournament_place(self):
+        """ récupération du lieu du tournoi"""
         place = TournamentView.get_place_tournament()
         while not place.isalpha():
             ErrorView.get_alpha_message_error("Lieu")
@@ -58,6 +64,7 @@ class TournamentController:
         return place
 
     def get_tournament_start_date(self):
+        """récupération de la date de début"""
         loop_valid_date = False
         while loop_valid_date == False:
             start_date = TournamentView.get_start_date_tournament()
@@ -70,6 +77,7 @@ class TournamentController:
         return start_date
 
     def get_tournament_end_date(self):
+        """récupération de la date de fin"""
         loop_valid_date = False
         while loop_valid_date == False:
             start_date = TournamentView.get_end_date_tournament()
@@ -82,10 +90,22 @@ class TournamentController:
         return start_date
 
     def get_tournament_time(self):
-        pass
+        """récupération de la durée d'un match du tournoi"""
+        while True:
+            try:
+                match_time = TournamentView.get_match_time_tournament()
+                if match_time < 1 or match_time > 3:
+                    raise ValueError
+            except ValueError:
+                ErrorView.get_int_message_error("Durée d'un match")
+            else:
+                break
+        return constant.MATCH_TIME[match_time - 1]
 
     def get_tournament_description(self):
-        pass
+        """récupération de la description"""
+        description = TournamentView.get_description_tournament()
+        return description
 
     def get_player_name(self):
         name = PlayerView.get_name_player()
@@ -114,7 +134,7 @@ class TournamentController:
         return birth_date
 
 
-
+ 
 
         
 
