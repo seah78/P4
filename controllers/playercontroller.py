@@ -4,6 +4,9 @@
 
 import datetime
 
+import utils.constants as constant
+
+
 from models.player import Player
 from views.playerview import PlayerView 
 from views.errorview import ErrorView
@@ -42,11 +45,17 @@ class PlayerController:
 
     def get_player_gender():
         """Récupération du sexe"""
-        gender = PlayerView.get_gender_player()
-        while gender != "M" or gender != "F":
-            ErrorView.get_gender_message_error()
-            gender = PlayerView.get_gender_player()
-        return gender
+        while True:
+            try:
+                gender = PlayerView.get_gender_player()
+                if not gender == 1 or gender == 2:
+                    raise ValueError
+            except ValueError:
+                ErrorView.get_int_message_error("Sexe")
+            else:
+                break
+        return constant.GENDER[gender - 1]
+
 
     def get_player_ranking_elo():
         """Récupération du classement elo"""

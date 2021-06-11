@@ -26,13 +26,13 @@ class PlayerView:
     @staticmethod
     def get_gender_player():
         """sexe du joueur"""
-        gender = input("Saisissez le sexe du joueur (M/F): ")
+        gender = int(input("Saisissez le sexe du joueur (1 - Masculin / 2 - Féminin): "))
         return gender    
     
     @staticmethod
     def get_ranking_elo_player():
         """classement elo du joueur"""
-        ranking_elo = input("Saisissez le classement elo du joueur : ")
+        ranking_elo = int(input("Saisissez le classement elo du joueur : "))
         return ranking_elo    
 
     @staticmethod
