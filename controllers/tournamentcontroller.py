@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+from controllers.roundcontroller import RoundController
 import datetime
 
 from controllers.playercontroller import PlayerController
@@ -47,7 +48,10 @@ class TournamentController:
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
 
+
         #for counter in range(constant.DEFAULT_ROUNDS):
+        
+        #return RoundController(self.tournament)
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
@@ -68,7 +72,7 @@ class TournamentController:
     def get_tournament_start_date(self):
         """récupération de la date de début"""
         loop_valid_date = False
-        while loop_valid_date == False:
+        while not loop_valid_date:
             start_date = TournamentView.get_start_date_tournament()
             try:
                 start_date = datetime.datetime.strptime(start_date, '%d-%m-%Y')
@@ -81,7 +85,7 @@ class TournamentController:
     def get_tournament_end_date(self):
         """récupération de la date de fin"""
         loop_valid_date = False
-        while loop_valid_date == False:
+        while not loop_valid_date:
             start_date = TournamentView.get_end_date_tournament()
             try:
                 start_date = datetime.datetime.strptime(start_date, '%d-%m-%Y')
@@ -106,8 +110,7 @@ class TournamentController:
 
     def get_tournament_description(self):
         """récupération de la description"""
-        description = TournamentView.get_description_tournament()
-        return description
+        return TournamentView.get_description_tournament()
 
 
 

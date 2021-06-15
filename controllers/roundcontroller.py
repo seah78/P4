@@ -2,7 +2,9 @@
 # coding: utf-8
 
 class RoundController:
-	pass
+	
+	def __init__(self, current_tournament):
+		self
 
 	def first_round_controller(self):
 		pass
