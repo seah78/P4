@@ -3,17 +3,15 @@
 
 import datetime
 
-DEFAULT_ROUNDS = 4
-
 class Tournament:
     """docstrings"""
 
-    def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, description=None):
+    def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, number_rounds=None, description=None):
         self.name = name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
-        self.number_rounds=DEFAULT_ROUNDS
+        self.number_rounds = number_rounds
         self.list_rounds = []
         self.list_players = []
         self.match_time = match_time

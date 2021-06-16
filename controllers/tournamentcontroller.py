@@ -34,6 +34,7 @@ class TournamentController:
         place = self.get_tournament_place()
         start_date = self.get_tournament_start_date()
         end_date = self.get_tournament_end_date()
+        number_rounds = constant.DEFAULT_ROUNDS
         time = self.get_tournament_time()
         description = self.get_tournament_description()
         self.tournament = Tournament(name, place, start_date, end_date, time, description)
@@ -51,7 +52,7 @@ class TournamentController:
 
         #for counter in range(constant.DEFAULT_ROUNDS):
         
-        #return RoundController(self.tournament)
+        return RoundController(self.tournament)
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
