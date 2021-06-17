@@ -33,7 +33,7 @@ class PlayerController:
     def get_player_birth_date():
         """Récupération de la date de naissance"""
         loop_valid_date = False
-        while loop_valid_date == False:
+        while not loop_valid_date:
             birth_date = PlayerView.get_birth_date_player()
             try:
                 birth_date = datetime.datetime.strptime(birth_date, '%d-%m-%Y')
@@ -48,7 +48,7 @@ class PlayerController:
         while True:
             try:
                 gender = PlayerView.get_gender_player()
-                if not gender == 1 or gender == 2:
+                if gender < 1 or gender > 2:
                     raise ValueError
             except ValueError:
                 ErrorView.get_int_message_error("Sexe")
@@ -62,7 +62,7 @@ class PlayerController:
         while True:
             try:
                 ranking_elo = PlayerView.get_ranking_elo_player()
-                if not ranking_elo > 0:
+                if ranking_elo <= 0:
                     raise ValueError
             except ValueError:
                 ErrorView.get_int_message_error("Classement Elo")

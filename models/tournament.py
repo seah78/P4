@@ -6,12 +6,13 @@ import datetime
 class Tournament:
     """docstrings"""
 
-    def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, number_rounds=None, description=None):
+    def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, total_rounds=None, counter_rounds=None, description=None):
         self.name = name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
-        self.number_rounds = number_rounds
+        self.total_rounds = total_rounds
+        self.counter_rounds = counter_rounds
         self.list_rounds = []
         self.list_players = []
         self.match_time = match_time
