@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from controllers.roundcontroller import RoundController
-import datetime
+from datetime import datetime
 
+from controllers.roundcontroller import RoundController
 from controllers.playercontroller import PlayerController
 
 import utils.constants as constant
@@ -22,6 +22,15 @@ créer le tournoi avec la liste de player
 lancer les rondes et le matchs
 """
 
+list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%j-%m-%Y")), "M", 1600), 
+               Player("Joueur" , "Deux", (datetime.now().strftime("%j-%m-%Y")), "M", 1705), 
+               Player("Joueur" , "Trois", (datetime.now().strftime("%j-%m-%Y")), "M", 1499),
+               Player("Joueur" , "Quatre", (datetime.now().strftime("%j-%m-%Y")), "M", 999),
+               Player("Joueur" , "Cinq", (datetime.now().strftime("%j-%m-%Y")), "M", 1495),
+               Player("Joueur" , "Six", (datetime.now().strftime("%j-%m-%Y")), "M", 1186),
+               Player("Joueur" , "Sept", (datetime.now().strftime("%j-%m-%Y")), "M", 1008),
+               Player("Joueur" , "Huit", (datetime.now().strftime("%j-%m-%Y")), "M", 1498)]
+
 class TournamentController:
     """Gestion du tournoi"""
 
@@ -30,16 +39,17 @@ class TournamentController:
 
     def new_tournament(self):
         """creation d'un tournoi"""
-        name = self.get_tournament_name()
-        place = self.get_tournament_place()
-        start_date = self.get_tournament_start_date()
-        end_date = self.get_tournament_end_date()
+        name = "Test" #self.get_tournament_name()
+        place = "Test" #self.get_tournament_place()
+        start_date = (datetime.now().strftime("%j-%m-%Y")) #self.get_tournament_start_date()
+        end_date = (datetime.now().strftime("%j-%m-%Y")) #self.get_tournament_end_date()
         total_rounds = constant.DEFAULT_ROUNDS
         counter_rounds = constant.COUNTER_ROUNDS
-        time = self.get_tournament_time()
-        description = self.get_tournament_description()
+        time = "Blitz" #self.get_tournament_time()
+        description = "test" #self.get_tournament_description()
         self.tournament = Tournament(name, place, start_date, end_date, time, description)
 
+        """
         for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
             name = PlayerController.get_player_name()
@@ -49,8 +59,10 @@ class TournamentController:
             ranking_elo = PlayerController.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self.tournament.add_player(player)
+        """
+        self.tournament.list_players = list_player
         
-        return RoundController(self.tournament)
+        RoundController(self.tournament)
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
