@@ -15,16 +15,22 @@ class Player:
         self.score = score
 
     def __str__(self):
-        output = f"Nom : {self.name} \n Prénom : {self.first_name}\n Date de naissance : {self.birth_date} \n Sexe : {self.gender} \n Classement Elo : {self.ranking_elo}"
+        return f"Nom : {self.name} \nPrénom : {self.first_name}\nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo}"
+
+    """        
+        def __repr__(self):
+            pass
+    """        
 
 
-    """ Calcul de l'age"""
+    """Calcul de l'age """
+
     """
     def age(self):
         if self.birth_date > datetime.date.today().replace(year = self.birth_date.year):
             return datetime.date.today().year - self.birth_date.year - 1
         else:
-             return datetime.date.today().year - self.birth_date.year
+            return datetime.date.today().year - self.birth_date.year
     """
 
     def update_ranking(self):

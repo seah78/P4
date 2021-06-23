@@ -22,14 +22,14 @@ créer le tournoi avec la liste de player
 lancer les rondes et le matchs
 """
 
-list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%j-%m-%Y")), "M", 1600), 
-               Player("Joueur" , "Deux", (datetime.now().strftime("%j-%m-%Y")), "M", 1705), 
-               Player("Joueur" , "Trois", (datetime.now().strftime("%j-%m-%Y")), "M", 1499),
-               Player("Joueur" , "Quatre", (datetime.now().strftime("%j-%m-%Y")), "M", 999),
-               Player("Joueur" , "Cinq", (datetime.now().strftime("%j-%m-%Y")), "M", 1495),
-               Player("Joueur" , "Six", (datetime.now().strftime("%j-%m-%Y")), "M", 1186),
-               Player("Joueur" , "Sept", (datetime.now().strftime("%j-%m-%Y")), "M", 1008),
-               Player("Joueur" , "Huit", (datetime.now().strftime("%j-%m-%Y")), "M", 1498)]
+list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
+               Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
+               Player("Joueur" , "Trois", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
+               Player("Joueur" , "Quatre", (datetime.now().strftime("%d-%m-%Y")), "M", 999),
+               Player("Joueur" , "Cinq", (datetime.now().strftime("%d-%m-%Y")), "M", 1495),
+               Player("Joueur" , "Six", (datetime.now().strftime("%d-%m-%Y")), "M", 1186),
+               Player("Joueur" , "Sept", (datetime.now().strftime("%d-%m-%Y")), "M", 1008),
+               Player("Joueur" , "Huit", (datetime.now().strftime("%d-%m-%Y")), "M", 1498)]
 
 class TournamentController:
     """Gestion du tournoi"""
@@ -47,7 +47,7 @@ class TournamentController:
         counter_rounds = constant.COUNTER_ROUNDS
         time = "Blitz" #self.get_tournament_time()
         description = "test" #self.get_tournament_description()
-        self.tournament = Tournament(name, place, start_date, end_date, time, description)
+        self.tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
 
         """
         for counter in range(constant.DEFAULT_PLAYERS):
