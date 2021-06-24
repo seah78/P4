@@ -13,7 +13,7 @@ from controllers.matchcontroller import MatchController
 
 
 class RoundController:
-
+"""Gestion des rounds"""
     
     def __init__(self, current_tournament):
         self.tournament = current_tournament
