@@ -3,7 +3,14 @@
 
 from datetime import datetime
 
+"""Models"""
 from models.round import Round
+
+"""Views"""
+
+
+"""Controllers"""
+from controllers.matchcontroller import MatchController
 
 
 class RoundController:
@@ -12,6 +19,7 @@ class RoundController:
         self.tournament = current_tournament
         self.total_rounds = self.tournament.total_rounds
         self.counter_rounds = self.tournament.counter_rounds
+        self.list_match = []
         self.manage_round()
 
         
@@ -34,23 +42,33 @@ class RoundController:
 
         print(name)        
         print(start_timestamp)
+        
+        """
         for i in self.tournament.list_players:
             print(i)
+        """
         
-        list_player = sorted(self.tournament.list_players, key=lambda player: player[self.tournament.list_players.ranking_elo])
+        list_player = sorted(self.tournament.list_players, key=lambda player: player.ranking_elo)
         
+        """
         for i in list_player:
             print(i)
+        """
         
+        for i in range(0,4):
+            self.list_match.append(MatchController.match_result(list_player[i], list_player[i+4]))
+        
+            
+
+        
+        """
         liste = [(12, 45),(56, 67), (34,1),(89,90),(45,6), (67,23)]
 
         print(liste)
         liste2 = sorted(liste, key= lambda x : x[1])
         print(liste)
         print(liste2)
-        
-        
-
+        """
         
 
 

@@ -19,3 +19,7 @@ class Round:
 
     def timestamp(self):
         pass
+        
+    def add_match(self):
+        self.match_list.append(match)
+        
