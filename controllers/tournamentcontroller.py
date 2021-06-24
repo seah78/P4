@@ -3,17 +3,18 @@
 
 from datetime import datetime
 
-from controllers.roundcontroller import RoundController
-from controllers.playercontroller import PlayerController
-
-import utils.constants as constant
-
+"""Models"""
 from models.tournament import Tournament
 from models.player import Player
-
+"""Views"""
 from views.tournamentview import TournamentView
 from views.playerview import PlayerView 
 from views.errorview import ErrorView
+"""Controllers"""
+from controllers.roundcontroller import RoundController
+from controllers.playercontroller import PlayerController
+"""Utils"""
+import utils.constants as constant
 
 
 """

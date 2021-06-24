@@ -4,7 +4,7 @@
 import datetime
 
 class Tournament:
-    """docstrings"""
+    """Modèle de tournoi"""
 
     def __init__(self, name=None, place=None, start_date=None, end_date=None, match_time=None, total_rounds=None, counter_rounds=None, description=None):
         self.name = name

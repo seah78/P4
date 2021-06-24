@@ -8,32 +8,27 @@ class PlayerView:
     @staticmethod
     def get_name_player():
         """nom du joueur"""
-        name = input("Saisissez le nom du joueur : ")
-        return name
+        return input("Saisissez le nom du joueur : ")
     
     @staticmethod
     def get_first_name_player():
         """prénom du joueur"""
-        first_name = input("Saisissez le prénom du joueur : ")
-        return first_name    
+        return input("Saisissez le prénom du joueur : ")
     
     @staticmethod
     def get_birth_date_player():
         """date de naissance du joueur"""
-        birth_date = input("Saisissez la date de naissance du joueur (jj-mm-aaaa): ")
-        return birth_date    
+        return input("Saisissez la date de naissance du joueur (jj-mm-aaaa): ")
     
     @staticmethod
     def get_gender_player():
         """sexe du joueur"""
-        gender = int(input("Saisissez le sexe du joueur (1 - Masculin / 2 - Féminin): "))
-        return gender    
+        return int(input("Saisissez le sexe du joueur (1 - Masculin / 2 - Féminin): "))
     
     @staticmethod
     def get_ranking_elo_player():
         """classement elo du joueur"""
-        ranking_elo = int(input("Saisissez le classement elo du joueur : "))
-        return ranking_elo    
+        return int(input("Saisissez le classement elo du joueur : "))
 
     @staticmethod
     def display_counter_player(counter):

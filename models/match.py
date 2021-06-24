@@ -2,7 +2,7 @@
 # coding: utf-8
 
 class Match:
-    """docstrings"""
+    """Modèle du match"""
 
     def __init__(self, white_player=None, black_player=None, white_score=None, black_score=None):
         self.white_player = white_player
