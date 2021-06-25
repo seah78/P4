@@ -10,5 +10,7 @@ class Match:
         self.white_score = white_score
         self.black_score = black_score
 
+    """
     def add_score(self):
         pass
+    """

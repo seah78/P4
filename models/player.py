@@ -15,7 +15,7 @@ class Player:
         self.score = score
 
     def __str__(self):
-        return f"Nom : {self.name} \nPrénom : {self.first_name}\nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo}"
+        return (f"Nom : {self.name} \nPrénom : {self.first_name}\nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo} \nScore : {self.score}")
 
     """        
         def __repr__(self):

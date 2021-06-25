@@ -12,8 +12,14 @@ class Round:
         self.end_timestamp = end_timestamp
         self.players_list = []
         self.ranking_list = []
-        self.match_list = []
+        self.match_list = []       
+    
+    def add_player(self, list_player):
+        self.players_list.extend(list_player)
         
-    def add_match(self):
-        self.match_list.append(match)
+    def add_ranking(self, list_ranking):
+        self.ranking_list.extend(list_ranking)
+
+    def add_match(self, list_match):
+        self.match_list.extend(list_match)
         

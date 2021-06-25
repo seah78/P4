@@ -21,7 +21,7 @@ class Tournament:
     def add_player(self, player):
         self.list_players.append(player)
 
-    def add_round(self):
+    def add_round(self, round):
         self.list_rounds.append(round)
 
 

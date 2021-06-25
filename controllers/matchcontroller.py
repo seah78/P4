@@ -45,4 +45,11 @@ class MatchController:
         else:
             white_score = 0.0
             black_score = 1.0
+        """Ajout du score au player"""    
+        white_player.score = white_player.score + white_score
+        black_player.score = black_player.score + black_score
+        
+        print(white_player)
+        print(black_player)
+        
         return  Match(white_player, black_player, white_score, black_score)
