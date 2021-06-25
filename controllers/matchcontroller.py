@@ -14,6 +14,9 @@ from views.errorview import ErrorView
 class MatchController:
     """Gestion des matchs"""
 
+    
+    
+    
       
     @staticmethod
     def get_match_result(white_player, black_player):

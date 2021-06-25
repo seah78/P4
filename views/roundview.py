@@ -3,4 +3,7 @@
 
 class RoundView:
     """Vues relatives au round"""
-	pass
+	
+    @staticmethod
+    def display_name_round(name):
+        print(f"Saisie de {name}")        

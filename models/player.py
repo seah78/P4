@@ -6,7 +6,7 @@ import datetime
 class Player:
     """ Joueur """
 
-    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking_elo=0, score=0):
+    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking_elo=0, score=0.0):
         self.name = name
         self.first_name = first_name
         self.birth_date = birth_date
