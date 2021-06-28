@@ -13,6 +13,7 @@ class Player:
         self.gender = gender
         self.ranking_elo = ranking_elo
         self.score = score
+        self.opponant = []
 
     def __str__(self):
         return (f"Nom : {self.name} \nPrénom : {self.first_name}\nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo} \nScore : {self.score}")

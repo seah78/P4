@@ -47,7 +47,9 @@ class MatchController:
             black_score = 1.0
         """Ajout du score au player"""    
         white_player.score = white_player.score + white_score
+        white_player.opponant.append(black_player)
         black_player.score = black_player.score + black_score
+        black_player.opponant.append(white_player)
         
         print(white_player)
         print(black_player)

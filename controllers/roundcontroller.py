@@ -51,29 +51,70 @@ class RoundController:
         return self.round
         
 
-    def next_round(self, previous_round, counter_rounds):
+    def next_round(self, tournament_list_players, counter_rounds):
         name = RoundController.get_name_round(counter_rounds)
         start_timestamp = datetime.now().strftime("%d-%m-%Y")
         RoundView.display_name_round(name)
         
         """affectation des joueurs pour les matchs de la première ronde"""
-        list_player = previous_round.ranking_list   
-        i = 0     
-        while i < 8:
-            self.list_match.append(MatchController.match_result(list_player[i], list_player[i+1]))
-            i+=2
+        list_player = RoundController.get_player(tournament_list_players)   
+        
+        """inclure méthode permettant de contrôler si une paire de joueur a déjà joué ensemble"""
+
+        
+
+        
+        pairing_player =[]
+        lenght = len(list_player)
+        for indice in range(lenght):
+            for player in list_player:
+                if player not in pairing_player:
+                    player_opponant = 1
+                    while list_player[player_opponant] in list_player[indice].opponant:
+                        player_opponant+=1
+                    self.list_match.append(MatchController.match_result(player, list_player[player_opponant]))
+        
+        
+        """
+        players = RoundController.get_player(tournament_list_players)
+
+        i = 0
+
+        while(len(players) > 0):            
+            player_white = players[i]
+            player_black = players[i + 1]
+
+            while player_black.ranking_elo in player_white.opponant:
+                i += 1
+                player_black = players[i + 1]
+                    
+            self.list_match.append(MatchController.match_result(player_white, player_black))
+
+            del players[0]
+            del players[i]
+
+            i = 0
+        """
+        
         end_timestamp = datetime.now().strftime("%d-%m-%Y")
 
         """Classement des joueurs en fonction de leurs score"""    
-        list_ranking = sorted(list_player, key=lambda player: player.score)   
+        list_ranking = sorted(players, key=lambda player: player.score)   
 
         self.round = Round(name, start_timestamp, end_timestamp)
-        self.round.add_player(list_player)
+        self.round.add_player(players)
         self.round.add_ranking(list_ranking)
         self.round.add_match(self.list_match)
         return self.round
 
-        """ tri par classement puis par rang en cas d'également pour réaliser l'apariement du round suivant """  
+    @staticmethod
+    def get_player(tournament_list_players):
+        players = [player for player in tournament_list_players]
+
+        players.sort(key = lambda x : x.ranking_elo, reverse=True)
+        players.sort(key = lambda x : x.score, reverse=True)
+
+        return players
     
     @staticmethod
     def get_name_round(counter_rounds):
