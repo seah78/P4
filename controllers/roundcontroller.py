@@ -56,30 +56,9 @@ class RoundController:
         start_timestamp = datetime.now().strftime("%d-%m-%Y")
         RoundView.display_name_round(name)
         
-        """affectation des joueurs pour les matchs de la première ronde"""
-        list_player = RoundController.get_player(tournament_list_players)   
-        
-        """inclure méthode permettant de contrôler si une paire de joueur a déjà joué ensemble"""
-
-        
-
-        
-        pairing_player =[]
-        lenght = len(list_player)
-        for indice in range(lenght):
-            for player in list_player:
-                if player not in pairing_player:
-                    player_opponant = 1
-                    while list_player[player_opponant] in list_player[indice].opponant:
-                        player_opponant+=1
-                    self.list_match.append(MatchController.match_result(player, list_player[player_opponant]))
-        
-        
-        """
+        """Vérification des paires de joueurs"""
         players = RoundController.get_player(tournament_list_players)
-
         i = 0
-
         while(len(players) > 0):            
             player_white = players[i]
             player_black = players[i + 1]
@@ -94,7 +73,6 @@ class RoundController:
             del players[i]
 
             i = 0
-        """
         
         end_timestamp = datetime.now().strftime("%d-%m-%Y")
 

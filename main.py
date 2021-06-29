@@ -1,13 +1,11 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-import datetime
-from dateutil.parser import parse
+from controllers.applicationcontroller import ApplicationController
 
-from controllers.tournamentcontroller import TournamentController 
-
-start = TournamentController()
-start.new_tournament()
-#start.display_tournament()
+def main():
+    app = ApplicationController()
 
 
+if __name__ == "__main__":
+    main()
