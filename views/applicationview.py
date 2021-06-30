@@ -21,6 +21,10 @@ class MenuView:
             
     def user_choice(self):
         self._display_menu()
+       
+    @staticmethod    
+    def get_user_choice():
+        return input(">>")
             
 class EndView:
     

@@ -16,3 +16,6 @@ class ErrorView:
     def get_int_message_error(value):
         print(f"L'entrée '{value}' doit être un entier numérique")
 
+    @staticmethod
+    def get_menu_message_error():
+        print("Choississez parmis les options proposées.")
