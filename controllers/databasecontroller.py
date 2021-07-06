@@ -9,8 +9,9 @@ class DataBase:
     
     @staticmethod    
     def save_database(serializer):
-        database = TinyDB('utils.database.json')
+        database = TinyDB('utils/database.json')
         database.insert(serializer)
+    
     
     def reload_database(self):
         pass
