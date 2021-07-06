@@ -14,3 +14,10 @@ class Match:
     def add_score(self):
         pass
     """
+    
+    def serializer(self):
+        data = {"white_player" : self.white_player.serializer(),
+                "black_player" : self.black_player.serializer(),
+                "white_score" : self.white_score,
+                "black_score" : self.black_score}
+        return data

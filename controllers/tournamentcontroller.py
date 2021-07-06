@@ -13,6 +13,7 @@ from views.errorview import ErrorView
 """Controllers"""
 from controllers.roundcontroller import RoundController
 from controllers.playercontroller import PlayerController
+from controllers.databasecontroller import DataBase
 """Utils"""
 import utils.constants as constant
 
@@ -74,8 +75,8 @@ class TournamentController:
                 self.tournament.add_round(RoundController.next_round(self, self.tournament.list_players , self.tournament.counter_rounds))
             self.tournament.counter_rounds += 1
 
+        DataBase.save_database(self.tournament.serializer())
         
-        #RoundController(self.tournament)
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""

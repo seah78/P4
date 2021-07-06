@@ -3,7 +3,23 @@
 
 from tinydb import TinyDB, Query
 
-db = TinyDB('db.json')
+class DataBase:
 
-db.insert({"type": "apple", "count": 7})
-db.insert({"type": "peach", "count": 3})
+
+    
+    @staticmethod    
+    def save_database(serializer):
+        database = TinyDB('utils.database.json')
+        database.insert(serializer)
+    
+    def reload_database(self):
+        pass
+        
+
+
+"""
+database = TinyDB('database.json')
+
+
+database.insert({"type": "apple", "count": 7})
+"""

@@ -40,3 +40,19 @@ class Player:
     def update_score(self):
         pass
 
+    def serializer(self):
+        data = {"Nom" : self.name,
+                "Prénom" : self.first_name,
+                "Date de naissance" : self.birth_date,
+                "Sexe" : self.gender,
+                "Classement ELO" : self.ranking_elo,
+                "score" : self.score }
+        return data
+        
+    def serializer_player(self):
+        data = {"Nom" : self.name,
+                "Prénom" : self.first_name,
+                "Date de naissance" : self.birth_date,
+                "Sexe" : self.gender,
+                "Classement ELO" : self.ranking_elo}
+        return data

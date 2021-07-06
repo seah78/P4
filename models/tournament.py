@@ -24,14 +24,15 @@ class Tournament:
     def add_round(self, round):
         self.list_rounds.append(round)
 
-
-"""
-    def reload_tounament(self):
-        pass
-"""
-
-
-"""
-    def order_ranking_player(self):
-        pass
-"""
+    def serializer(self):
+        data = {"name" : self.name,
+                "place" : self.place,
+                "star_date" : self.start_date,
+                "end_date" : self.end_date,
+                "total_rounds" : self.total_rounds,
+                "counter_rounds" : self.counter_rounds,
+                "rounds" : [round.serializer() for round in self.list_rounds],
+                "players" : [player.serializer() for player in self.list_players],
+                "match_time" : self.match_time,
+                "description" : self.description}
+        return data
