@@ -44,10 +44,10 @@ class TournamentController:
 
     def new_tournament(self):
         """creation d'un tournoi"""
-        name = "Test" #self.get_tournament_name()
+        name = "Test Serializer" #self.get_tournament_name()
         place = "Test" #self.get_tournament_place()
-        start_date = (datetime.now().strftime("%j-%m-%Y")) #self.get_tournament_start_date()
-        end_date = (datetime.now().strftime("%j-%m-%Y")) #self.get_tournament_end_date()
+        start_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_start_date()
+        end_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_end_date()
         total_rounds = constant.DEFAULT_ROUNDS
         counter_rounds = constant.COUNTER_ROUNDS
         time = "Blitz" #self.get_tournament_time()

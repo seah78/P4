@@ -24,10 +24,9 @@ class Round:
         self.match_list.extend(list_match)
     
     def serializer(self):
-        data = {"name_round" : self.name_round,
+        return {"name_round" : self.name_round,
                 "start_timestamp" : self.start_timestamp,
                 "end_timestamp" : self.end_timestamp,
                 "players" : [player.serializer() for player in self.players_list],
                 "matchs" : [match.serializer() for match in self.match_list]}
-        return data
         

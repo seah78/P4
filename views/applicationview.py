@@ -24,7 +24,7 @@ class MenuView:
        
     @staticmethod    
     def get_user_choice():
-        return input(">>")
+        return input(">> ")
             
 class EndView:
     

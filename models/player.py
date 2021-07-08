@@ -41,18 +41,16 @@ class Player:
         pass
 
     def serializer(self):
-        data = {"Nom" : self.name,
-                "Prénom" : self.first_name,
-                "Date de naissance" : self.birth_date,
-                "Sexe" : self.gender,
-                "Classement ELO" : self.ranking_elo,
+        return {"name" : self.name,
+                "first_name" : self.first_name,
+                "birth_date" : self.birth_date,
+                "gender" : self.gender,
+                "ranking_elo" : self.ranking_elo,
                 "score" : self.score }
-        return data
         
     def serializer_player(self):
-        data = {"Nom" : self.name,
-                "Prénom" : self.first_name,
-                "Date de naissance" : self.birth_date,
-                "Sexe" : self.gender,
-                "Classement ELO" : self.ranking_elo}
-        return data
+        return {"name" : self.name,
+                "first_name" : self.first_name,
+                "birth_date" : self.birth_date,
+                "gender" : self.gender,
+                "ranking_elo" : self.ranking_elo}

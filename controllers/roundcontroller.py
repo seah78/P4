@@ -58,6 +58,8 @@ class RoundController:
         
         """Vérification des paires de joueurs"""
         players = RoundController.get_player(tournament_list_players)
+        self.round.add_player(players)
+
         i = 0
         while(len(players) > 0):            
             player_white = players[i]
@@ -80,7 +82,7 @@ class RoundController:
         list_ranking = sorted(players, key=lambda player: player.score)   
 
         self.round = Round(name, start_timestamp, end_timestamp)
-        self.round.add_player(players)
+        # self.round.add_player(players)
         self.round.add_ranking(list_ranking)
         self.round.add_match(self.list_match)
         return self.round

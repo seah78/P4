@@ -25,7 +25,7 @@ class Tournament:
         self.list_rounds.append(round)
 
     def serializer(self):
-        data = {"name" : self.name,
+        return {"name" : self.name,
                 "place" : self.place,
                 "star_date" : self.start_date,
                 "end_date" : self.end_date,
@@ -35,4 +35,3 @@ class Tournament:
                 "players" : [player.serializer() for player in self.list_players],
                 "match_time" : self.match_time,
                 "description" : self.description}
-        return data
