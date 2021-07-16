@@ -41,9 +41,20 @@ class DataBase:
         for player in self.json["players"]:
             reload_player = Player(player["name"], player["first_name"], player["birth_date"], player["gender"], player["ranking_elo"], player["score"]) #ajouter oppoant
             self.tournament.add_player(reload_player)
-
+        player_list = []
+        ranking_list = []
+        match_list = []
         for round in self.json["rounds"]:
-            reload_round = Round()
+            for player_round in round["players"]:
+                player_list.append(Player(player_round["name"], player_round["first_name"], player_round["birth_date"], player_round["gender"], player_round["ranking_elo"], player_round["score"]))
+            for match_round in round["matchs"]:
+                match_list.append(Match(match_round["white_player"], match_round["black_player"], match_round["white_score"], match_round["black_score"]))
+
+            reload_round = Round(round["name_round"], round["start_timestamp"], round["end_timestamp"])
+            reload_round.add_player(player_list)
+            reload_round.add_ranking(ranking_list)
+            reload_round.add_match(match_list)
+            self.tournament.add_round(reload_round)
 
 
         self.name_round = name_round
