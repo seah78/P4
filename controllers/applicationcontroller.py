@@ -10,7 +10,7 @@ from views.applicationview import MenuView
 from views.applicationview import EndView
 from views.errorview import ErrorView
 """Controllers"""
-from controllers.databasecontroller import DataBase
+from controllers.databasecontroller import DataBaseController
 """Utils"""
 
 
@@ -51,7 +51,7 @@ class MenuController:
     
     def __call__(self):
         self._menu.add("auto", "Créer un tournoi.", TournamentController())
-        self._menu.add("auto", "Recharger un tournoi.", DataBase.reload_database(self))
+        self._menu.add("auto", "Recharger un tournoi.", DataBaseController())
 
         self._menu.add("Q", "Quitter", EndController())
         

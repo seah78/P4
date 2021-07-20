@@ -7,13 +7,17 @@ from models.round import Round
 from models.match import Match
 
 
-from tinydb import TinyDB, Query
+from tinydb import TinyDB, Query, where
 
-class DataBase:
+
+class DataBaseController:
     
     def __init__(self):
         self.tournament = None
-        self.json = TinyDB('utils/database.json', indent=4)
+
+        
+    def __call__(self):
+        self.deserializer()
     
     @staticmethod
     def save_database(serializer):
@@ -25,26 +29,34 @@ class DataBase:
     def reload_database(self):
         pass
     
-    
-    def deserializer(self):
-        name = self.json["name"]
-        place = self.json["place"]
-        start_date = self.json["start_date"]
-        end_date = self.json["end_date"]
-        total_rounds = self.json["total_rounds"]
-        counter_rounds = self.json["counter_rounds"]
-        time = self.json["match_time"]
-        description = self.json["description"]
-        self.tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
+    @staticmethod
+    def deserializer():
+        database = TinyDB('utils/database.json', indent=4)
 
         
-        for player in self.json["players"]:
+        Tournaments = Query()
+        tournament = database.search(Tournaments.name == 'Test Serializer')[0]
+        print(tournament)
+        
+        
+        name = tournament["name"]
+        place = tournament["place"]
+        start_date = tournament["start_date"]
+        end_date = tournament["end_date"]
+        total_rounds = tournament["total_rounds"]
+        counter_rounds = tournament["counter_rounds"]
+        time = tournament["match_time"]
+        description = tournament["description"]
+        reload_tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
+
+        
+        for player in tournament["players"]:
             reload_player = Player(player["name"], player["first_name"], player["birth_date"], player["gender"], player["ranking_elo"], player["score"]) #ajouter oppoant
-            self.tournament.add_player(reload_player)
+            reload_tournament.add_player(reload_player)
         player_list = []
         ranking_list = []
         match_list = []
-        for round in self.json["rounds"]:
+        for round in tournament["rounds"]:
             for player_round in round["players"]:
                 player_list.append(Player(player_round["name"], player_round["first_name"], player_round["birth_date"], player_round["gender"], player_round["ranking_elo"], player_round["score"]))
             for match_round in round["matchs"]:
@@ -54,22 +66,9 @@ class DataBase:
             reload_round.add_player(player_list)
             reload_round.add_ranking(ranking_list)
             reload_round.add_match(match_list)
-            self.tournament.add_round(reload_round)
+            reload_tournament.add_round(reload_round)
+        return reload_tournament
 
-
-        self.name_round = name_round
-        self.start_timestamp = start_timestamp
-        self.end_timestamp = end_timestamp
-        self.players_list = []
-        self.ranking_list = []
-        self.match_list = []    
-
-        while self.tournament.counter_rounds != total_rounds + 1:
-            if self.tournament.counter_rounds == 1:
-                self.tournament.add_round(RoundController.first_round(self, self.tournament.list_players, self.tournament.counter_rounds))
-            else:
-                self.tournament.add_round(RoundController.next_round(self, self.tournament.list_players , self.tournament.counter_rounds))
-            self.tournament.counter_rounds += 1
 
     
     

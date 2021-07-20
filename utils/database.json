@@ -3,7 +3,7 @@
         "1": {
             "name": "Test Serializer",
             "place": "Test",
-            "star_date": "13-07-2021",
+            "start_date": "13-07-2021",
             "end_date": "13-07-2021",
             "total_rounds": 4,
             "counter_rounds": 5,

@@ -13,7 +13,7 @@ from views.errorview import ErrorView
 """Controllers"""
 from controllers.roundcontroller import RoundController
 from controllers.playercontroller import PlayerController
-from controllers.databasecontroller import DataBase
+from controllers.databasecontroller import DataBaseController
 """Utils"""
 import utils.constants as constant
 

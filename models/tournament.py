@@ -27,7 +27,7 @@ class Tournament:
     def serializer(self):
         return {"name" : self.name,
                 "place" : self.place,
-                "star_date" : self.start_date,
+                "start_date" : self.start_date,
                 "end_date" : self.end_date,
                 "total_rounds" : self.total_rounds,
                 "counter_rounds" : self.counter_rounds,
