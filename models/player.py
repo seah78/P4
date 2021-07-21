@@ -54,3 +54,15 @@ class Player:
                 "birth_date" : self.birth_date,
                 "gender" : self.gender,
                 "ranking_elo" : self.ranking_elo}
+
+"""
+    def deserializer(self):
+        database = TinyDB('utils/database.json', indent=4)
+
+        
+        Tournaments = Query()
+        tournament = database.search(Tournaments.name == 'Test Serializer')[0]
+
+
+        player["name"], player["first_name"], player["birth_date"], player["gender"], player["ranking_elo"], player["score"]
+"""

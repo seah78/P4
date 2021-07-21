@@ -75,7 +75,11 @@ class TournamentController:
                 self.tournament.add_round(RoundController.next_round(self, self.tournament.list_players , self.tournament.counter_rounds))
             self.tournament.counter_rounds += 1
 
-        DataBase.save_database(self.tournament.serializer())
+        DataBaseController.save_tournament(self.tournament.serializer())
+
+    def reload_tournament(self):
+        self.tournament = None
+        self.tournament = Tournament.deserializer()
         
 
     def get_tournament_name(self):

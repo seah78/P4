@@ -20,13 +20,13 @@ class DataBaseController:
         self.deserializer()
     
     @staticmethod
-    def save_database(serializer):
+    def save_tournament(serializer):
         database = TinyDB('utils/database.json', indent=4)
-        database.truncate()
-        database.insert(serializer)
+        tournament = database.table("tournament")
+        tournament.insert(serializer)
     
     
-    def reload_database(self):
+    def reload_tournament(self):
         pass
     
     @staticmethod
@@ -112,9 +112,3 @@ class DataBaseController:
     """    
 
 
-"""
-database = TinyDB('database.json')
-
-
-database.insert({"type": "apple", "count": 7})
-"""

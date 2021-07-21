@@ -20,3 +20,15 @@ class Match:
                 "black_player" : self.black_player.serializer(),
                 "white_score" : self.white_score,
                 "black_score" : self.black_score}
+
+    """
+    def deserializer(self):
+        database = TinyDB('utils/database.json', indent=4)
+
+        
+        Tournaments = Query()
+        tournament = database.search(Tournaments.name == 'Test Serializer')[0]
+
+
+        match_round["white_player"], match_round["black_player"], match_round["white_score"], match_round["black_score"]
+    """
