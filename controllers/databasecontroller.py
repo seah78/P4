@@ -18,6 +18,7 @@ class DataBaseController:
         
     def __call__(self):
         self.deserializer()
+        return True
     
     @staticmethod
     def save_tournament(serializer):
@@ -71,44 +72,6 @@ class DataBaseController:
 
 
     
-    
-    
-    """
-    def reload_tournament(self):
-        self.tournament = None # je met none car dans le cas normal il serait à None.
-        #Il va aller lire le json et récupérer l'information du tournoi qu'on veut reprendre (Dans notre exemple self.json)
-        self.deserializer()
-        number_round_to_run = 4 - len(self.json["rounds"])
-        print(number_round_to_run)
-        
-        if number_round_to_run == 4:
-            pass
-            #run_first_round()
-        else:
-            for i in range(len(self.json["rounds"]) + 1, 5):
-                pass
-                #run_round(i)
-    
-    def deserializer(self):
-        self.tournament = Tournament(self.json["name"], self.json["place"])
-        self.tournament.players = []
-        
-        for player in self.json["players"]:
-            reload_player = Player(player["name"], player["elo"], player["score"])
-            self.tournament.add_player(reload_player)
-            
-        for round in self.json["rounds"]:
-            reload_round = Round(round["number"])
-            for match in round["matchs"]:
-                player1 = Player(match["player1"]["name"], match["player1"]["elo"], match["player1"]["score"])
-                player2 = Player(match["player2"]["name"], match["player1"]["elo"], match["player1"]["score"])
-                
-                reload_match = Match(player1, player2, match["score_player1"], match["score_player2"])
-                
-                reload_round.add_reload_match(reload_match)
-            self.tournament.add_round(reload_round)
-            #return tournament
-        print(self.tournament.serializer())
-    """    
+
 
 

@@ -50,7 +50,10 @@ class TournamentView:
         print(f"Lieu du tournoi : {place}")
 
 
-
+    @staticmethod
+    def get_continue_tournament():
+        """Question pour continuer le tournoi"""
+        return int(input("Souhaitez-vous continuer le tournoi ? (1 - Oui / 2 - Non)"))    
 
 
         

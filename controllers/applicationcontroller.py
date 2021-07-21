@@ -31,10 +31,13 @@ class ApplicationController:
         S'arrête lorsque le controleur de fin est appelé
         """
         
-        
+
         self._controller = MenuController()
         while self._controller:
-            self._controller = self._controller()
+            choice = self._controller()
+            if not choice():
+                break
+            self._controller = MenuController()
                     
 
 class MenuController:
@@ -66,7 +69,7 @@ class MenuController:
                 self._errorview.get_menu_message_error()
                 answer = self._view.get_user_choice()
 
-        
+        self._answer = True
         return self._user_choice.handler
         
 class EndController:
@@ -79,4 +82,4 @@ class EndController:
         
     def __call__(self):
         self.view.quit()
-        print("EndController")
+        return False

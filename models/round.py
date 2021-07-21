@@ -29,13 +29,3 @@ class Round:
                 "end_timestamp" : self.end_timestamp,
                 "players" : [player.serializer() for player in self.players_list],
                 "matchs" : [match.serializer() for match in self.match_list]}
-    
-    """
-    def deserializer(self):
-        database = TinyDB('utils/database.json', indent=4)
-
-        
-        Tournaments = Query()
-        tournament = database.search(Tournaments.name == 'Test Serializer')[0
-        round["name_round"], round["start_timestamp"], round["end_timestamp"]        
-    """

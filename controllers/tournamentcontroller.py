@@ -41,6 +41,7 @@ class TournamentController:
         
     def __call__(self):
         self.new_tournament()
+        return True
 
     def new_tournament(self):
         """creation d'un tournoi"""
@@ -74,8 +75,15 @@ class TournamentController:
             else:
                 self.tournament.add_round(RoundController.next_round(self, self.tournament.list_players , self.tournament.counter_rounds))
             self.tournament.counter_rounds += 1
+            answer_continue = self.get_tournament_continue()
+            if answer_continue == 2 :
+                DataBaseController.save_tournament(self.tournament.serializer())
+                break
+            else:
+                continue
+                
 
-        DataBaseController.save_tournament(self.tournament.serializer())
+
 
     def reload_tournament(self):
         self.tournament = None
@@ -140,7 +148,19 @@ class TournamentController:
     def get_tournament_description(self):
         """récupération de la description"""
         return TournamentView.get_description_tournament()
-
+    
+    def get_tournament_continue(self):
+        """Contrôle de la réponse pour continuer ou non le tournoi"""
+        while True:
+            try:
+                answer = TournamentView.get_continue_tournament()
+                if answer < 1 or answer > 2:
+                    raise ValueError
+            except ValueError:
+                ErrorView.get_int_message_error("Continuer")
+            else:
+                break
+        return answer
 
 
 

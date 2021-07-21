@@ -16,13 +16,12 @@ class Player:
         self.opponant = []
 
     def __str__(self):
-        return (f"Nom : {self.name} \nPrénom : {self.first_name}\nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo} \nScore : {self.score}")
+        return (f"Nom : {self.name} \nPrénom : {self.first_name} \nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo} \nScore : {self.score}")
 
     """        
         def __repr__(self):
             pass
     """        
-
 
     """Calcul de l'age """
 
@@ -55,14 +54,3 @@ class Player:
                 "gender" : self.gender,
                 "ranking_elo" : self.ranking_elo}
 
-"""
-    def deserializer(self):
-        database = TinyDB('utils/database.json', indent=4)
-
-        
-        Tournaments = Query()
-        tournament = database.search(Tournaments.name == 'Test Serializer')[0]
-
-
-        player["name"], player["first_name"], player["birth_date"], player["gender"], player["ranking_elo"], player["score"]
-"""

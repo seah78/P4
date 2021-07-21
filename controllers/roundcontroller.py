@@ -103,12 +103,3 @@ class RoundController:
     def end_round():
         pass
     
-        
-        """
-        liste = [(12, 45),(56, 67), (34,1),(89,90),(45,6), (67,23)]
-
-        print(liste)
-        liste2 = sorted(liste, key= lambda x : x[1])
-        print(liste)
-        print(liste2)
-        """
