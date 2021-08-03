@@ -11,7 +11,9 @@ from tinydb import TinyDB, Query, where
 
 
 class DataBaseController:
+    pass
     
+    """
     def __init__(self):
         self.tournament = None
 
@@ -29,7 +31,9 @@ class DataBaseController:
     
     def reload_tournament(self):
         pass
+    """
     
+    """
     @staticmethod
     def deserializer():
         database = TinyDB('utils/database.json', indent=4)
@@ -69,6 +73,7 @@ class DataBaseController:
             reload_round.add_match(match_list)
             reload_tournament.add_round(reload_round)
         return reload_tournament
+        """
 
 
     
