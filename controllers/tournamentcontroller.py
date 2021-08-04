@@ -42,12 +42,14 @@ class CreateTournamentController:
     
     def __init__(self, tournament):
         self._tournament = tournament
+        self._tournament_controller = TournamentController()
+        self._round_controller = RoundController()
         self._view = TournamentView()
         self._database = Database()
         
     def __call__(self):
 
-        self._tournament.name = TournamentController.get_tournament_name(self)
+        self._tournament.name = self._tournament_controller.get_tournament_name()
         self._tournament.place = "Test" #self.get_tournament_place()
         self._tournament.start_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_start_date()
         self._tournament.end_date = "" # (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_end_date()
@@ -77,14 +79,14 @@ class CreateTournamentController:
 
             print(f"counter rounds {self._tournament.counter_rounds}, total rounds {self._tournament.total_rounds}")
             if self._tournament.counter_rounds == 1:
-                self._tournament.add_round(RoundController.first_round(self, self._tournament.list_players, self._tournament.counter_rounds))
+                self._tournament.add_round(self._round_controller.first_round(self._tournament.list_players, self._tournament.counter_rounds))
             else:
-                self._tournament.add_round(RoundController.next_round(self, self._tournament.list_players , self._tournament.counter_rounds))
+                self._tournament.add_round(self._round_controller.next_round(self._tournament.list_players , self._tournament.counter_rounds))
                 if self._tournament.counter_rounds == self._tournament.total_rounds:
                     self._tournament.end_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_end_date()
             if self._tournament.counter_rounds != self._tournament.total_rounds:
                 self._tournament.counter_rounds += 1
-                answer_continue = TournamentController.get_tournament_continue(self)
+                answer_continue = TournamentController.get_tournament_continue()
                 if answer_continue != 2:
                     continue
             break
@@ -97,6 +99,8 @@ class ReloadTournamentController:
     """
     def __init__(self, tournament):
         self._tournament = tournament
+        self._tournament_controller = TournamentController()
+        self._round_controller = RoundController()
         self._view = TournamentView()
         self._database = Database()
         
@@ -112,23 +116,23 @@ class ReloadTournamentController:
                 self._view.display_list_reload_tournament(tournament.doc_id, tournament["name"])
             list_doc_id.append(tournament.doc_id)
                 
-        reload_tournament = TournamentController.get_tournament_reload(self, list_doc_id)
+        id_reload_tournament = TournamentController.get_tournament_reload(list_doc_id)
         
         
-        self._tournament = self._tournament.deserializer(self, reload_tournament)
+        self._tournament = self._tournament.deserializer(id_reload_tournament)
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
             Clear.screen()
 
             print(f"counter rounds {self._tournament.counter_rounds}, total rounds {self._tournament.total_rounds}")
             if self._tournament.counter_rounds == 1:
-                self._tournament.add_round(RoundController.first_round(self, self._tournament.list_players, self._tournament.counter_rounds))
+                self._tournament.add_round(self._round_controller.first_round(self._tournament.list_players, self._tournament.counter_rounds))
             else:
-                self._tournament.add_round(RoundController.next_round(self, self._tournament.list_players , self._tournament.counter_rounds))
+                self._tournament.add_round(self._round_controller.next_round(self._tournament.list_players , self._tournament.counter_rounds))
                 if self._tournament.counter_rounds == self._tournament.total_rounds:
                     self._tournament.end_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_end_date()
             if self._tournament.counter_rounds != self._tournament.total_rounds:
                 self._tournament.counter_rounds += 1
-                answer_continue = TournamentController.get_tournament_continue(self)
+                answer_continue = TournamentController.get_tournament_continue()
                 if answer_continue != 2:
                     continue
             break
@@ -240,7 +244,8 @@ class TournamentController:
         """récupération de la description"""
         return TournamentView.get_description_tournament()
     
-    def get_tournament_continue(self):
+    @staticmethod
+    def get_tournament_continue():
         """Contrôle de la réponse pour continuer ou non le tournoi"""
         while True:
             try:
@@ -253,7 +258,8 @@ class TournamentController:
                 break
         return answer
     
-    def get_tournament_reload(self, tournaments):
+    @staticmethod
+    def get_tournament_reload(tournaments):
         """Contrôle de la saisie pour la recharge du tournoi"""
         while True:
             try:

@@ -461,6 +461,237 @@
             ],
             "match_time": "Blitz",
             "description": "test"
+        },
+        "3": {
+            "name": "testtournoiserializerdeserializer",
+            "place": "Test",
+            "start_date": "04-08-2021",
+            "end_date": "",
+            "total_rounds": 4,
+            "counter_rounds": 2,
+            "rounds": [
+                {
+                    "name_round": "Round 1",
+                    "start_timestamp": "04-08-2021",
+                    "end_timestamp": "04-08-2021",
+                    "players": [
+                        {
+                            "name": "Joueur",
+                            "first_name": "Quatre",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 999,
+                            "score": 1.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Sept",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1008,
+                            "score": 1.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Six",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1186,
+                            "score": 1.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Cinq",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1495,
+                            "score": 1.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Huit",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1498,
+                            "score": 0.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Trois",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1499,
+                            "score": 0.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Un",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1600,
+                            "score": 0.0
+                        },
+                        {
+                            "name": "Joueur",
+                            "first_name": "Deux",
+                            "birth_date": "04-08-2021",
+                            "gender": "M",
+                            "ranking_elo": 1705,
+                            "score": 0.0
+                        }
+                    ],
+                    "matchs": [
+                        {
+                            "white_player": {
+                                "name": "Joueur",
+                                "first_name": "Quatre",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 999,
+                                "score": 1.0
+                            },
+                            "black_player": {
+                                "name": "Joueur",
+                                "first_name": "Huit",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1498,
+                                "score": 0.0
+                            },
+                            "white_score": 1.0,
+                            "black_score": 0.0
+                        },
+                        {
+                            "white_player": {
+                                "name": "Joueur",
+                                "first_name": "Sept",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1008,
+                                "score": 1.0
+                            },
+                            "black_player": {
+                                "name": "Joueur",
+                                "first_name": "Trois",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1499,
+                                "score": 0.0
+                            },
+                            "white_score": 1.0,
+                            "black_score": 0.0
+                        },
+                        {
+                            "white_player": {
+                                "name": "Joueur",
+                                "first_name": "Six",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1186,
+                                "score": 1.0
+                            },
+                            "black_player": {
+                                "name": "Joueur",
+                                "first_name": "Un",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1600,
+                                "score": 0.0
+                            },
+                            "white_score": 1.0,
+                            "black_score": 0.0
+                        },
+                        {
+                            "white_player": {
+                                "name": "Joueur",
+                                "first_name": "Cinq",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1495,
+                                "score": 1.0
+                            },
+                            "black_player": {
+                                "name": "Joueur",
+                                "first_name": "Deux",
+                                "birth_date": "04-08-2021",
+                                "gender": "M",
+                                "ranking_elo": 1705,
+                                "score": 0.0
+                            },
+                            "white_score": 1.0,
+                            "black_score": 0.0
+                        }
+                    ]
+                }
+            ],
+            "players": [
+                {
+                    "name": "Joueur",
+                    "first_name": "Un",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1600,
+                    "score": 0.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Deux",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1705,
+                    "score": 0.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Trois",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1499,
+                    "score": 0.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Quatre",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 999,
+                    "score": 1.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Cinq",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1495,
+                    "score": 1.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Six",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1186,
+                    "score": 1.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Sept",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1008,
+                    "score": 1.0
+                },
+                {
+                    "name": "Joueur",
+                    "first_name": "Huit",
+                    "birth_date": "04-08-2021",
+                    "gender": "M",
+                    "ranking_elo": 1498,
+                    "score": 0.0
+                }
+            ],
+            "match_time": "Blitz",
+            "description": "test"
         }
     }
 }

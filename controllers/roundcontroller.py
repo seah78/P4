@@ -21,7 +21,7 @@ class RoundController:
         #self.tournament = current_tournament
         #self.total_rounds = self.tournament.total_rounds
         #self.counter_rounds = self.tournament.counter_rounds
-        #self.list_match = []
+        self.list_match = []
         #self.manage_round()
     
 
@@ -30,7 +30,7 @@ class RoundController:
         """premier round"""
         name = RoundController.get_name_round(counter_rounds)
         start_timestamp = datetime.now().strftime("%d-%m-%Y")
-        self.list_match = []
+        #self.list_match = []
         RoundView.display_name_round(name)        
 
         """Tri par classement elo"""

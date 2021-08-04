@@ -44,7 +44,7 @@ class Tournament:
                 "match_time" : self.match_time,
                 "description" : self.description}
 
-    def deserializer(self, reload_tournament):
+    def deserializer(self, id_reload_tournament):
         
         """
         database = TinyDB('utils/database.json', indent=4)
@@ -53,7 +53,7 @@ class Tournament:
         database = Database()
         
         #tournament = database.search(tournaments.name == 'testtournoi')[0]
-        tournament = database.tournaments.get(doc_id = reload_tournament)
+        tournament = database.tournaments.get(doc_id = id_reload_tournament)
         
         print(tournament)
         
@@ -86,6 +86,7 @@ class Tournament:
             reload_round.add_ranking(ranking_list)
             reload_round.add_match(match_list)
             reload_tournament.add_round(reload_round)
+        
         return reload_tournament
 
 
