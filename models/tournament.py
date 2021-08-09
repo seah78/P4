@@ -55,7 +55,7 @@ class Tournament:
         #tournament = database.search(tournaments.name == 'testtournoi')[0]
         tournament = database.tournaments.get(doc_id = id_reload_tournament)
         
-        print(tournament)
+        #print(tournament)
         
         
         name = tournament["name"]
@@ -77,9 +77,17 @@ class Tournament:
         match_list = []
         for round in tournament["rounds"]:
             for player_round in round["players"]:
-                player_list.append(Player(player_round["name"], player_round["first_name"], player_round["birth_date"], player_round["gender"], player_round["ranking_elo"], player_round["score"]))
+                player_list.append(Player(player_round["name"], 
+                                          player_round["first_name"], 
+                                          player_round["birth_date"], 
+                                          player_round["gender"], 
+                                          player_round["ranking_elo"], 
+                                          player_round["score"]))
             for match_round in round["matchs"]:
-                match_list.append(Match(match_round["white_player"], match_round["black_player"], match_round["white_score"], match_round["black_score"]))
+                match_list.append(Match(Tournament.reload_player_match_round(match_round["white_player"]), 
+                                        Tournament.reload_player_match_round(match_round["black_player"]), 
+                                        match_round["white_score"], 
+                                        match_round["black_score"]))
 
             reload_round = Round(round["name_round"], round["start_timestamp"], round["end_timestamp"])
             reload_round.add_player(player_list)
@@ -89,4 +97,13 @@ class Tournament:
         
         return reload_tournament
 
-
+    @staticmethod
+    def reload_player_match_round(player):
+        return Player(
+            player["name"],
+            player["first_name"],
+            player["birth_date"],
+            player["gender"],
+            player["ranking_elo"],
+            player["score"],
+        )

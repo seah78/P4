@@ -13,24 +13,28 @@ class Database:
         self.tournaments = self.db.table("tournaments")
         self.players = self.db.table("players")
     
-    
-    
     def save_tournament(self, serializer):
         self.tournaments.insert(serializer)
+        
+    def update_tournament(self, serializer, id_tournament):
+        item = self.tournaments.get(doc_id=id_tournament)
+        print(item)
+        #name_tournament = self.tournaments.get(doc_id=id_tournament)
+        #print(name_tournament["name"])
+        #Tournament = Query()
+        #update_tournament = self.tournaments.search(Tournament.name == name_tournament["name"])
+        #update_tournament = self.tournaments.get(doc_id=id_tournament)
+        #request = Query()
+        #print(update_tournament)
+        
+
+
+        
+        #self.tournaments.update(serializer, self.tournaments.search(Tournament.name == name_tournament["name"]))
+        
+        self.tournaments.update(serializer, item)
+
         
     def save_player(self, serializer):
         self.players.insert(serializer)
     
-    """
-    @staticmethod
-    def save_tournament(serializer):
-        database = TinyDB('utils/database.json', indent=4)
-        tournament = database.table("tournaments")
-        tournament.insert(serializer)
-        
-    @staticmethod
-    def save_player(serializer):
-        database = TinyDB('utils/database.json', indent=4)
-        tournament = database.table("players")
-        tournament.insert(serializer)
-    """

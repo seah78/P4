@@ -1,0 +1,25 @@
+{
+    "_default": {},
+    "adherent": {
+        "1": {
+            "nom": "herlant",
+            "prenom": "christophe",
+            "age": 50
+        },
+        "2": {
+            "nom": "herlant",
+            "prenom": "sebastien",
+            "age": 43
+        },
+        "3": {
+            "nom": "herlant",
+            "prenom": "loyce",
+            "age": 16
+        },
+        "4": {
+            "nom": "herlant",
+            "prenom": "lola",
+            "age": 14
+        }
+    }
+}

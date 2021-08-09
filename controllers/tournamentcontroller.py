@@ -136,7 +136,7 @@ class ReloadTournamentController:
                 if answer_continue != 2:
                     continue
             break
-        self._database.save_tournament(self._tournament.serializer())
+        self._database.update_tournament(self._tournament.serializer(), id_reload_tournament)
         return True
 
 
@@ -152,38 +152,6 @@ class TournamentController:
     def __call__(self):
         self.new_tournament()
         return True
-                
-    def reload_tournament(self):
-        self.tournament = None
-        
-        database = TinyDB('utils/database.json', indent=4)
-        tournaments = database.table("tournaments")
-
-        for tournament in tournaments:
-            print(tournament.doc_id, tournament["name"])
-        
-        
-        
-        #tournament = database.search(tournaments.name == 'testtournoi')[0]
-        
-        #inclure le choix du tournoi
-        """
-        self.tournament = Tournament.deserializer(self)
-        while self.tournament.counter_rounds != self.tournament.total_rounds + 1:
-            if self.tournament.counter_rounds == 1:
-                self.tournament.add_round(RoundController.first_round(self, self.tournament.list_players, self.tournament.counter_rounds))
-            else:
-                self.tournament.add_round(RoundController.next_round(self, self.tournament.list_players , self.tournament.counter_rounds))
-            self.tournament.counter_rounds += 1
-            answer_continue = self.get_tournament_continue()
-            if answer_continue != 2:
-                continue        
-
-            Database.save_tournament(self, self.tournament.serializer())
-            break
-        """
-        return True
-    
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
