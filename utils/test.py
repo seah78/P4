@@ -37,3 +37,8 @@ adherents.update({"age": 50}, Adherent.prenom == "christophe")
 
 christophe = adherents.get(doc_id=1)
 print(christophe)
+
+adherents.update({"age": 51}, adherents.get(doc_id=1))
+
+christophe = adherents.get(doc_id=1)
+print(christophe)

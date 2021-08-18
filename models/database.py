@@ -17,22 +17,29 @@ class Database:
         self.tournaments.insert(serializer)
         
     def update_tournament(self, serializer, id_tournament):
-        item = self.tournaments.get(doc_id=id_tournament)
-        print(item)
-        #name_tournament = self.tournaments.get(doc_id=id_tournament)
-        #print(name_tournament["name"])
-        #Tournament = Query()
+        #item = self.tournaments.get(doc_id=id_tournament)
+        #print(item)
+        search_tournament = self.tournaments.get(doc_id=id_tournament)
+        name_tournament = search_tournament["name"]
+        print(name_tournament)
+        Tournament = Query()
         #update_tournament = self.tournaments.search(Tournament.name == name_tournament["name"])
         #update_tournament = self.tournaments.get(doc_id=id_tournament)
         #request = Query()
         #print(update_tournament)
+    
+        #print(self.tournaments.search(where("name") == name_tournament))
+        #print(self.tournaments.search(where("name") == name_tournament)[0])
         
+        #self.tournaments.remove(self.tournaments.search(Tournament.name == name_tournament))
+        #self.tournaments.remove(Tournament.name == name_tournament)
+
 
 
         
         #self.tournaments.update(serializer, self.tournaments.search(Tournament.name == name_tournament["name"]))
         
-        self.tournaments.update(serializer, item)
+        self.tournaments.update(serializer, Tournament.name == name_tournament)
 
         
     def save_player(self, serializer):
