@@ -26,6 +26,14 @@ class MenuView:
     def get_user_choice():
         return input(">> ")
     
+    @staticmethod
+    def display_principal_menu():
+        print("Menu principal")
+        
+    @staticmethod
+    def display_report_menu():
+        print("Menu des rapports")
+    
 
 class ReportView:
     

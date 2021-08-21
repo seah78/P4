@@ -11,7 +11,6 @@ from views.applicationview import MenuView
 from views.applicationview import ReportView
 from views.applicationview import ReturnView
 from views.applicationview import EndView
-from views.tournamentview import TournamentView
 from views.errorview import ErrorView
 """Controllers"""
 from controllers.tournamentcontroller import CreateTournamentController
@@ -70,6 +69,9 @@ class MenuController:
         
         Clear.screen()
         
+        self._view.display_principal_menu()
+
+        
         self._menu.add("auto", "Créer un tournoi.", CreateTournamentController(self._tournament))
         self._menu.add("auto", "Recharger un tournoi.", ReloadTournamentController(self._tournament))
         self._menu.add("auto", "Rapports", ReportMenuController())
@@ -107,7 +109,7 @@ class ReportMenuController:
     def __call__(self):
         Clear.screen()
 
-        print("Menu des rapports") #Créer une vue
+        self._view.display_report_menu()
         
         self._menu.add("auto", "Liste des joueurs par ordre alphabétique", ReportController())
         self._menu.add("auto", "Liste des joueurs par classement ELO", ReportController())
