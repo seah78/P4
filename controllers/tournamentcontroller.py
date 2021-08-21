@@ -73,6 +73,7 @@ class CreateTournamentController:
             self._tournament.add_player(player)
         """
         """Gérer l'enregistrement du joueur"""
+        """Controleur pour vérifier si un joueur existe déjà"""
 
         self._tournament.list_players = list_player
 
@@ -156,6 +157,8 @@ class TournamentController:
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
+        
+        """ Voir librairie re (regular expression)"""
         name = TournamentView.get_name_tournament()
         while not name.isalpha():
             ErrorView.get_alpha_message_error("Nom")

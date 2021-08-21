@@ -8,6 +8,8 @@ from models.tournament import Tournament
 from models.database import Database
 """Views"""
 from views.applicationview import MenuView
+from views.applicationview import ReportView
+from views.applicationview import ReturnView
 from views.applicationview import EndView
 from views.tournamentview import TournamentView
 from views.errorview import ErrorView
@@ -105,26 +107,17 @@ class ReportMenuController:
     def __call__(self):
         Clear.screen()
 
-        print("Menu des rapports")
-
-        """
-        ●	Liste de tous les acteurs :
-            ○	par ordre alphabétique ;
-            ○	par classement.
-        ●	Liste de tous les joueurs d'un tournoi :
-            ○	par ordre alphabétique ;
-            ○	par classement.
-        ●	Liste de tous les tournois.
-        ●	Liste de tous les tours d'un tournoi.
-        ●	Liste de tous les matchs d'un tournoi.
-
-        """
+        print("Menu des rapports") #Créer une vue
         
         self._menu.add("auto", "Liste des joueurs par ordre alphabétique", ReportController())
-        self._menu.add("auto", "Liste des joueurs", ReportController())
-        self._menu.add("auto", "Rapports", ReportMenuController())
+        self._menu.add("auto", "Liste des joueurs par classement ELO", ReportController())
+        self._menu.add("auto", "Liste des joueurs d'un tournoi par par ordre alphabétique", ReportController())
+        self._menu.add("auto", "Liste des joueurs d'un tournoi par classement ELO", ReportController())
+        self._menu.add("auto", "Liste des tournois", ReportController())
+        self._menu.add("auto", "Liste des rondes d'un tournoi", ReportController())
+        self._menu.add("auto", "Liste des matchs d'un tournoi", ReportController())
 
-        self._menu.add("Q", "Quitter", EndController())
+        self._menu.add("R", "Retour", ReturnController())
         
         self._view.user_choice()
         answer = self._view.get_user_choice()
@@ -140,7 +133,30 @@ class ReportMenuController:
         self._answer = True
         return self._user_choice.handler
 
+class ReportController:
+    """
+    Affichage du rapport
+    """
+    
+    def __init__(self):
+        self.view = ReportView()
+        
+    def __call__(self):
+        self.view.display_report()
+        return True
 
+
+class ReturnController:
+    """
+    Pour retourner au menu principal
+    """
+    
+    def __init__(self):
+        self.view = ReturnView()
+        
+    def __call__(self):
+        self.view.display_return()
+        return True
 
         
 class EndController:
