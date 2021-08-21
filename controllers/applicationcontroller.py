@@ -68,15 +68,9 @@ class MenuController:
         
         Clear.screen()
         
-        """
-        self._menu.add("auto", "Créer un tournoi.", TournamentController())
-        self._menu.add("auto", "Recharger un tournoi.", TournamentController.reload_tournament)
-    
-        """
-
-        
         self._menu.add("auto", "Créer un tournoi.", CreateTournamentController(self._tournament))
         self._menu.add("auto", "Recharger un tournoi.", ReloadTournamentController(self._tournament))
+        self._menu.add("auto", "Rapports", ReportMenuController())
 
         self._menu.add("Q", "Quitter", EndController())
         
@@ -93,9 +87,61 @@ class MenuController:
 
         self._answer = True
         return self._user_choice.handler
-    
 
+
+class ReportMenuController:
+    """
+    Menu des rapports
+    """
     
+    def __init__(self):
+        self._menu = Menu()
+        self._view = MenuView(self._menu)
+        self._errorview = ErrorView()
+        self._user_choice = None
+        self._answer = True
+        self._database = Database()
+
+    def __call__(self):
+        Clear.screen()
+
+        print("Menu des rapports")
+
+        """
+        ●	Liste de tous les acteurs :
+            ○	par ordre alphabétique ;
+            ○	par classement.
+        ●	Liste de tous les joueurs d'un tournoi :
+            ○	par ordre alphabétique ;
+            ○	par classement.
+        ●	Liste de tous les tournois.
+        ●	Liste de tous les tours d'un tournoi.
+        ●	Liste de tous les matchs d'un tournoi.
+
+        """
+        
+        self._menu.add("auto", "Liste des joueurs par ordre alphabétique", ReportController())
+        self._menu.add("auto", "Liste des joueurs", ReportController())
+        self._menu.add("auto", "Rapports", ReportMenuController())
+
+        self._menu.add("Q", "Quitter", EndController())
+        
+        self._view.user_choice()
+        answer = self._view.get_user_choice()
+        
+        while self._answer:
+            if answer.upper() in self._menu:
+                self._user_choice = self._menu[answer.upper()]
+                self._answer = False
+            else:
+                self._errorview.get_menu_message_error()
+                answer = self._view.get_user_choice()
+
+        self._answer = True
+        return self._user_choice.handler
+
+
+
         
 class EndController:
     """

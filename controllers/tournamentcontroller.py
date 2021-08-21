@@ -25,6 +25,7 @@ créer le tournoi avec la liste de player
 lancer les rondes et le matchs
 """
 
+
 list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
                Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
                Player("Joueur" , "Trois", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
@@ -43,6 +44,7 @@ class CreateTournamentController:
     def __init__(self, tournament):
         self._tournament = tournament
         self._tournament_controller = TournamentController()
+        self._player_controller = PlayerController()
         self._round_controller = RoundController()
         self._view = TournamentView()
         self._database = Database()
@@ -50,27 +52,28 @@ class CreateTournamentController:
     def __call__(self):
 
         self._tournament.name = self._tournament_controller.get_tournament_name()
-        self._tournament.place = "Test" #self.get_tournament_place()
-        self._tournament.start_date = (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_start_date()
-        self._tournament.end_date = "" # (datetime.now().strftime("%d-%m-%Y")) #self.get_tournament_end_date()
+        self._tournament.place = "Test" #self._tournament_controller.get_tournament_place()
+        self._tournament.start_date = (datetime.now().strftime("%d-%m-%Y")) #self._tournament_controller.get_tournament_start_date()
+        self._tournament.end_date = "" # (datetime.now().strftime("%d-%m-%Y")) #self._tournament_controller.get_tournament_end_date()
         self._tournament.total_rounds = constant.DEFAULT_ROUNDS
         self._tournament.counter_rounds = constant.COUNTER_ROUNDS
-        self._tournament.match_time = "Blitz" #self.get_tournament_time()
-        self._tournament.description = "test" #self.get_tournament_description()
+        self._tournament.match_time = "Blitz" #self._tournament_controller.get_tournament_time()
+        self._tournament.description = "test" #self._tournament_controller.get_tournament_description()
         #self.tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
 
         """
         for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
-            name = PlayerController.get_player_name()
-            first_name = PlayerController.get_player_first_name()
-            birth_date = PlayerController.get_player_birth_date()
-            gender = PlayerController.get_player_gender()
+            name = self._player_controller.get_player_name()
+            first_name = self._player_controller.get_player_first_name()
+            birth_date = self._player_controller.get_player_birth_date()
+            gender = self._player_controller.get_player_gender()
             ranking_elo = PlayerController.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
-            self.tournament.add_player(player)
+            self._tournament.add_player(player)
         """
-        
+        """Gérer l'enregistrement du joueur"""
+
         self._tournament.list_players = list_player
 
 
@@ -105,11 +108,9 @@ class ReloadTournamentController:
         self._database = Database()
         
     def __call__(self):
-        
-        """
-        database = TinyDB('utils/database.json', indent=4)
-        tournaments = database.table("tournaments")
-        """
+
+        """gérer si aucun tournoi à recharger"""
+
         list_doc_id = []
         for tournament in self._database.tournaments:
             if tournament["end_date"] is "":
