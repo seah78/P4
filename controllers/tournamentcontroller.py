@@ -150,17 +150,11 @@ class TournamentController:
 
     def __init__(self):
         self.tournament = None
-        
-    def __call__(self):
-        self.new_tournament()
-        return True
 
     def get_tournament_name(self):
         """recupération du nom du tournoi"""
-        
-        """ Voir librairie re (regular expression)"""
         name = TournamentView.get_name_tournament()
-        while not name.isalpha():
+        while not name.replace(" ", "").isalnum():
             ErrorView.get_alpha_message_error("Nom")
             name = TournamentView.get_name_tournament()
         return name
@@ -168,7 +162,7 @@ class TournamentController:
     def get_tournament_place(self):
         """ récupération du lieu du tournoi"""
         place = TournamentView.get_place_tournament()
-        while not place.isalpha():
+        while not place.replace(" ", "").isalpha():
             ErrorView.get_alpha_message_error("Lieu")
             place = TournamentView.get_place_tournament()
         return place

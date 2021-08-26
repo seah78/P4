@@ -21,7 +21,7 @@ class PlayerController:
     def get_player_name():
         """Récupération du nom du joueur"""
         name = PlayerView.get_name_player()
-        while not name.isalpha():
+        while not name.replace(" ", "").isalpha():
             ErrorView.get_alpha_message_error("Nom")
             name = PlayerView.get_name_player()
         return name
@@ -29,7 +29,7 @@ class PlayerController:
     def get_player_first_name():
         """Récupération du prénom du joueur"""
         first_name = PlayerView.get_first_name_player()
-        while not first_name.isalpha():
+        while not first_name.replace(" ", "").isalpha():
             ErrorView.get_alpha_message_error("Prénom")
             first_name = PlayerView.get_first_name_player()
         return first_name
