@@ -19,13 +19,6 @@ import utils.constants as constant
 from utils.clear import Clear
 
 
-"""
-créer une liste de player
-créer le tournoi avec la liste de player
-lancer les rondes et le matchs
-"""
-
-
 list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
                Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
                Player("Joueur" , "Trois", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
@@ -44,6 +37,7 @@ class CreateTournamentController:
     def __init__(self, tournament):
         self._tournament = tournament
         self._tournament_controller = TournamentController()
+        self._player = Player()
         self._player_controller = PlayerController()
         self._round_controller = RoundController()
         self._view = TournamentView()
@@ -76,6 +70,8 @@ class CreateTournamentController:
         """Controleur pour vérifier si un joueur existe déjà"""
 
         self._tournament.list_players = list_player
+        for player in self._tournament.list_players:
+            self._database.save_player(player.serializer_player())
 
 
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
@@ -109,8 +105,6 @@ class ReloadTournamentController:
         self._database = Database()
         
     def __call__(self):
-
-        """gérer si aucun tournoi à recharger"""
 
         list_doc_id = []
         for tournament in self._database.tournaments:

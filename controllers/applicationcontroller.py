@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+from tinydb import TinyDB, Query, where
+
 
 """Models"""
 from models.application import Menu
@@ -71,12 +73,18 @@ class MenuController:
         
         self._view.display_principal_menu()
 
-        
-        self._menu.add("auto", "Créer un tournoi.", CreateTournamentController(self._tournament))
-        self._menu.add("auto", "Recharger un tournoi.", ReloadTournamentController(self._tournament))
-        self._menu.add("auto", "Rapports", ReportMenuController())
+        if self._database.tournaments.contains(where('end_date') ==  ""):
+            self._menu.add("auto", "Créer un tournoi.", CreateTournamentController(self._tournament))
+            self._menu.add("auto", "Recharger un tournoi.", ReloadTournamentController(self._tournament))
+            self._menu.add("auto", "Rapports", ReportMenuController())
 
-        self._menu.add("Q", "Quitter", EndController())
+            self._menu.add("Q", "Quitter", EndController())
+
+        else:
+            self._menu.add("auto", "Créer un tournoi.", CreateTournamentController(self._tournament))
+            self._menu.add("auto", "Rapports", ReportMenuController())
+
+            self._menu.add("Q", "Quitter", EndController())
         
         self._view.user_choice()
         answer = self._view.get_user_choice()
