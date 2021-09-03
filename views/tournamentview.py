@@ -1,14 +1,15 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+
 class TournamentView:
     """Vues relatives au tournoi"""
-	
+
     @staticmethod
     def get_name_tournament():
         """saisie du nom du tournoi"""
         return input("Entrer le nom du tournoi : ")
-	
+
     @staticmethod
     def get_place_tournament():
         """saisie du lieu du tournoi"""
@@ -37,31 +38,30 @@ class TournamentView:
     def get_description_tournament():
         """saisie de la description du tournoi"""
         return str(input("Saisissez la description du tournoi : "))
-      
 
     @staticmethod
     def display_name_tournament(name):
         """affichage du nom du tournoi"""
         print(f"Nom du tournoi : {name}")
-        
+
     @staticmethod
     def display_list_reload_tournament(doc_id, name):
         """affichage de la liste des tournois non-terminés"""
         print(f"Tournoi {doc_id} : {name}")
-	
+
     @staticmethod
     def display_place_tournament(place):
         """affichage du lieu du tournoi"""
         print(f"Lieu du tournoi : {place}")
 
-
     @staticmethod
     def get_continue_tournament():
         """Question pour continuer le tournoi"""
-        return int(input("Souhaitez-vous continuer le tournoi ? (1 - Oui / 2 - Non) : "))    
+        return int(
+            input("Souhaitez-vous continuer le tournoi ? (1 - Oui / 2 - Non) : ")
+        )
 
     @staticmethod
     def get_reload_tournament():
         """Question pour le choix du tournoi à recharger"""
-        return int(input("Saisissez l'id du tournoi à recharger : "))    
-        
+        return int(input("Saisissez l'id du tournoi à recharger : "))

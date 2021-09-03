@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+#from controllers.application_controller import HomeMenuController
+#from controllers.application_controller import HomeMenuController
 from datetime import datetime
 from tinydb import TinyDB, Query, where
 
@@ -19,9 +21,9 @@ import utils.constants as constant
 from utils.clear import Clear
 
 
-list_player = [Player("Joueur" , "Un", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
+list_player = [Player("Joueur" , "neuf", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
                Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
-               Player("Joueur" , "Trois", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
+               Player("Joueur" , "dix", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
                Player("Joueur" , "Quatre", (datetime.now().strftime("%d-%m-%Y")), "M", 999),
                Player("Joueur" , "Cinq", (datetime.now().strftime("%d-%m-%Y")), "M", 1495),
                Player("Joueur" , "Six", (datetime.now().strftime("%d-%m-%Y")), "M", 1186),
@@ -70,8 +72,13 @@ class CreateTournamentController:
         """Controleur pour vérifier si un joueur existe déjà"""
 
         self._tournament.list_players = list_player
+        search_player = Query()
         for player in self._tournament.list_players:
-            self._database.save_player(player.serializer_player())
+            if self._database.players.search(search_player.name ==  player.name and search_player.first_name == player.first_name and search_player.birth_date == player.birth_date):
+
+                continue
+            else:
+                self._database.save_player(player.serializer_player())
 
 
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
@@ -90,7 +97,7 @@ class CreateTournamentController:
                 if answer_continue != 2:
                     continue
             break
-        self._database.save_tournament(self._tournament.serializer())
+        self._database.save_tournament(self._tournament.serializer()) 
         return True
 
 class ReloadTournamentController:

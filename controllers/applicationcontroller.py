@@ -69,7 +69,7 @@ class MenuController:
     
     def __call__(self):
         
-        Clear.screen()
+        #Clear.screen()
         
         self._view.display_principal_menu()
 
@@ -115,7 +115,7 @@ class ReportMenuController:
         self._database = Database()
 
     def __call__(self):
-        Clear.screen()
+        #Clear.screen()
 
         self._view.display_report_menu()
         
@@ -149,12 +149,29 @@ class ReportController:
     """
     
     def __init__(self):
-        self.view = ReportView()
+        self._database = Database()
+        self._view = ReportView()
         
     def __call__(self):
-        self.view.display_report()
-        return True
+        self._view.display_report()
+        self._view.display_players_rank(self._database.players)
 
+        #return True
+
+class ReportAlphaPlayersController:
+    """
+    Affichage du rapport
+    """
+    
+    def __init__(self):
+        self._database = Database()
+        self._view = ReportView()
+        
+    def display_players_rank(self):
+        self._view.display_report()
+        self._view.display_players_rank(self._database.players)
+
+        #return True
 
 class ReturnController:
     """
