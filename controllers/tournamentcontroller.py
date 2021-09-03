@@ -115,11 +115,11 @@ class ReloadTournamentController:
 
         list_doc_id = []
         for tournament in self._database.tournaments:
-            if tournament["end_date"] is "":
-                self._view.display_list_reload_tournament(tournament.doc_id, tournament["name"])
+            if tournament["end_date"] == "":
+                self._view.display_list_tournament(tournament.doc_id, tournament["name"])
             list_doc_id.append(tournament.doc_id)
                 
-        id_reload_tournament = TournamentController.get_tournament_reload(list_doc_id)
+        id_reload_tournament = TournamentController.get_tournament(list_doc_id)
         
         
         self._tournament = self._tournament.deserializer(id_reload_tournament)
@@ -226,15 +226,15 @@ class TournamentController:
         return answer
     
     @staticmethod
-    def get_tournament_reload(tournaments):
-        """Contrôle de la saisie pour la recharge du tournoi"""
+    def get_tournament(tournaments):
+        """Contrôle de la saisie du tournoi"""
         while True:
             try:
-                reload_tournament = TournamentView.get_reload_tournament()
+                reload_tournament = TournamentView.get_tournament()
                 if reload_tournament not in tournaments:
                     raise ValueError
             except ValueError:
-                ErrorView.get_int_list_reload_message_error()
+                ErrorView.get_int_list_tournament_message_error()
             else:
                 break
         return reload_tournament

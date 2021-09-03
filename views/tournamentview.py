@@ -45,8 +45,8 @@ class TournamentView:
         print(f"Nom du tournoi : {name}")
 
     @staticmethod
-    def display_list_reload_tournament(doc_id, name):
-        """affichage de la liste des tournois non-terminés"""
+    def display_list_tournament(doc_id, name):
+        """affichage de la liste des tournois"""
         print(f"Tournoi {doc_id} : {name}")
 
     @staticmethod
@@ -62,6 +62,6 @@ class TournamentView:
         )
 
     @staticmethod
-    def get_reload_tournament():
+    def get_tournament():
         """Question pour le choix du tournoi à recharger"""
-        return int(input("Saisissez l'id du tournoi à recharger : "))
+        return int(input("Saisissez l'id du tournoi : "))

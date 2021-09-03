@@ -42,12 +42,21 @@ class ReportView:
         print("Affichage du rapport")
 
     @staticmethod
-    def display_players_rank(players_table):
+    def display_players_alpha(alpha_player_list):
         print("\nPAR ORDRE ALPHABÉTIQUE :\n")
 
-        sorted_list = sorted(players_table, key=lambda k: k['name'])
+        for player in alpha_player_list:
+            print(f" NOM : '{player['name']}',"
+                  f" PRÉNOM : '{player['first_name']}',"
+                  f" DATE DE NAISSANCE : '{player['birth_date']}',"
+                  f" SEXE : '{player['gender']}',"
+                  f" CLASSEMENT GÉNÉRAL : '{player['ranking_elo']}'.")
+            
+    @staticmethod
+    def display_players_rank(rank_player_list):
+        print("\nPAR CLASSEMENT ELO :\n")
 
-        for player in sorted_list:
+        for player in rank_player_list:
             print(f" NOM : '{player['name']}',"
                   f" PRÉNOM : '{player['first_name']}',"
                   f" DATE DE NAISSANCE : '{player['birth_date']}',"

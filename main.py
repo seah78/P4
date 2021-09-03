@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from controllers.application_controller import ApplicationController
+from controllers.applicationcontroller import ApplicationController
 
 def main():
     
