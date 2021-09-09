@@ -27,8 +27,8 @@ list_player = [Player("Joueur" , "neuf", (datetime.now().strftime("%d-%m-%Y")), 
                Player("Joueur" , "Quatre", (datetime.now().strftime("%d-%m-%Y")), "M", 999),
                Player("Joueur" , "Cinq", (datetime.now().strftime("%d-%m-%Y")), "M", 1495),
                Player("Joueur" , "Six", (datetime.now().strftime("%d-%m-%Y")), "M", 1186),
-               Player("Joueur" , "Sept", (datetime.now().strftime("%d-%m-%Y")), "M", 1008),
-               Player("Joueur" , "Huit", (datetime.now().strftime("%d-%m-%Y")), "M", 1498)]
+               Player("Joueur" , "Gérard", (datetime.now().strftime("%d-%m-%Y")), "M", 1008),
+               Player("Joueur" , "Robert", (datetime.now().strftime("%d-%m-%Y")), "M", 1498)]
 
     
 class CreateTournamentController:
@@ -72,13 +72,8 @@ class CreateTournamentController:
         """Controleur pour vérifier si un joueur existe déjà"""
 
         self._tournament.list_players = list_player
-        search_player = Query()
-        for player in self._tournament.list_players:
-            if self._database.players.search(search_player.name ==  player.name and search_player.first_name == player.first_name and search_player.birth_date == player.birth_date):
-
-                continue
-            else:
-                self._database.save_player(player.serializer_player())
+        
+        self.search_player()
 
 
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
@@ -99,6 +94,14 @@ class CreateTournamentController:
             break
         self._database.save_tournament(self._tournament.serializer()) 
         return True
+
+    def search_player(self):
+        search_player = Query()
+        for player in self._tournament.list_players:
+            if self._database.players.search(search_player.name ==  player.name and search_player.first_name == player.first_name):
+                continue
+            else:
+                self._database.save_player(player.serializer_player())
 
 class ReloadTournamentController:
     """
