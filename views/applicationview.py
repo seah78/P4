@@ -40,28 +40,20 @@ class ReportView:
     @staticmethod
     def display_report():
         print("Affichage du rapport")
-
+        
     @staticmethod
-    def display_players_alpha(alpha_player_list):
-        print("\nPAR ORDRE ALPHABÉTIQUE :\n")
-
-        for player in alpha_player_list:
-            print(f" NOM : '{player['name']}',"
+    def display_player(player):
+        print(f" NOM : '{player['name']}',"
                   f" PRÉNOM : '{player['first_name']}',"
                   f" DATE DE NAISSANCE : '{player['birth_date']}',"
                   f" SEXE : '{player['gender']}',"
                   f" CLASSEMENT GÉNÉRAL : '{player['ranking_elo']}'.")
-            
-    @staticmethod
-    def display_players_rank(rank_player_list):
-        print("\nPAR CLASSEMENT ELO :\n")
 
-        for player in rank_player_list:
-            print(f" NOM : '{player['name']}',"
-                  f" PRÉNOM : '{player['first_name']}',"
-                  f" DATE DE NAISSANCE : '{player['birth_date']}',"
-                  f" SEXE : '{player['gender']}',"
-                  f" CLASSEMENT GÉNÉRAL : '{player['ranking_elo']}'.")
+    @staticmethod
+    def display_match(indice, white_player, black_player, white_score, black_score):
+        print(f"Match {indice}\n"
+              f"Blanc : '{white_player['name']}' , '{white_player['first_name']}' {white_score}\n"
+              f"Noir : '{black_player['name']}' , '{black_player['first_name']}' {black_score}\n")
 
     
 class ReturnView:

@@ -11,7 +11,6 @@ from models.database import Database
 """Views"""
 from views.applicationview import MenuView
 from views.applicationview import ReportView
-from views.applicationview import ReturnView
 from views.applicationview import EndView
 from views.errorview import ErrorView
 from views.tournamentview import TournamentView
@@ -119,7 +118,8 @@ class ReportAlphaPlayersController:
     def __call__(self):
         alpha_player_list = sorted(self._database.players, key=lambda k: k['name'])
         self._view.display_report()
-        self._view.display_players_alpha(alpha_player_list)
+        for player in alpha_player_list:
+            self._view.display_player(player)
 
         return True
 
@@ -136,8 +136,8 @@ class ReportRankPlayersController:
     def __call__(self):
         rank_player_list = sorted(self._database.players, key=lambda k: k['ranking_elo'])
         self._view.display_report()
-        self._view.display_players_rank(rank_player_list)
-
+        for player in rank_player_list:
+            self._view.display_player(player)
         return True
 
 
@@ -149,7 +149,7 @@ class ReportTournamentAlphaPlayersController:
     def __init__(self):
         self._database = Database()
         self._viewreport = ReportView()
-        self._viewtournament = TournamentView
+        self._viewtournament = TournamentView()
         
     def __call__(self):
         list_doc_id = []
@@ -158,10 +158,12 @@ class ReportTournamentAlphaPlayersController:
             list_doc_id.append(tournament.doc_id)
             
         id_tournament = TournamentController.get_tournament(list_doc_id)
+        tournament = self._database.tournaments.get(doc_id = id_tournament)
         
-        rank_player_list = sorted(id_tournament.players, key=lambda k: k['name'])
+        alpha_player_list = sorted(tournament['players'], key=lambda k: k['name'])
         self._viewreport.display_report()
-        self._viewreport.display_players_rank(rank_player_list)
+        for player in alpha_player_list:
+            self._viewreport.display_player(player)
 
         return True
 
@@ -173,12 +175,22 @@ class ReportTournamentRankPlayersController:
     
     def __init__(self):
         self._database = Database()
-        self._view = ReportView()
-        
+        self._viewreport = ReportView()
+        self._viewtournament = TournamentView()
+                
     def __call__(self):
-        rank_player_list = sorted(self._database.tournaments, key=lambda k: k['ranking_elo'])
-        self._view.display_report()
-        self._view.display_players_rank(rank_player_list)
+        list_doc_id = []
+        for tournament in self._database.tournaments:
+            self._viewtournament.display_list_tournament(tournament.doc_id, tournament["name"])
+            list_doc_id.append(tournament.doc_id)
+            
+        id_tournament = TournamentController.get_tournament(list_doc_id)
+        tournament = self._database.tournaments.get(doc_id = id_tournament)
+        
+        rank_player_list = sorted(tournament['players'], key=lambda k: k['ranking_elo'])
+        self._viewreport.display_report()
+        for player in rank_player_list:
+            self._viewreport.display_player(player)
 
         return True
 
@@ -190,12 +202,18 @@ class ReportTournamentController:
     
     def __init__(self):
         self._database = Database()
-        self._view = ReportView()
-        
+        self._viewreport = ReportView()
+        self._viewtournament = TournamentView()
+                
     def __call__(self):
-        rank_player_list = sorted(self._database.tournaments, key=lambda k: k['ranking_elo'])
-        self._view.display_report()
-        self._view.display_players_rank(rank_player_list)
+        self._viewreport.display_report()
+        for tournament in self._database.tournaments:
+            self._viewtournament.display_all_items_list_tournament(tournament.doc_id, 
+                                                                   tournament["name"], 
+                                                                   tournament["place"], 
+                                                                   tournament["start_date"], 
+                                                                   tournament["end_date"], 
+                                                                   tournament["total_rounds"])
 
         return True
 
@@ -207,12 +225,22 @@ class ReportRoundsTournamentController:
     
     def __init__(self):
         self._database = Database()
-        self._view = ReportView()
+        self._viewreport = ReportView()
+        self._viewtournament = TournamentView()
         
     def __call__(self):
-        rank_player_list = sorted(self._database.tournaments, key=lambda k: k['ranking_elo'])
-        self._view.display_report()
-        self._view.display_players_rank(rank_player_list)
+        list_doc_id = []
+        for tournament in self._database.tournaments:
+            self._viewtournament.display_list_tournament(tournament.doc_id, tournament["name"])
+            list_doc_id.append(tournament.doc_id)
+            
+        id_tournament = TournamentController.get_tournament(list_doc_id)
+        tournament = self._database.tournaments.get(doc_id = id_tournament)
+        
+        for round in tournament["rounds"]:
+            self._viewtournament.display_round_tournament(round)
+            for player in round["players"]:
+                self._viewreport.display_player(player)
 
         return True
     
@@ -224,13 +252,26 @@ class ReportMatchTournamentController:
     
     def __init__(self):
         self._database = Database()
-        self._view = ReportView()
+        self._viewreport = ReportView()
+        self._viewtournament = TournamentView()
         
-    def display_players_rank(self):
-        rank_player_list = sorted(self._database.tournaments, key=lambda k: k['ranking_elo'])
-        self._view.display_report()
-        self._view.display_players_rank(rank_player_list)
+    def __call__(self):
+        list_doc_id = []
+        for tournament in self._database.tournaments:
+            self._viewtournament.display_list_tournament(tournament.doc_id, tournament["name"])
+            list_doc_id.append(tournament.doc_id)
 
+        id_tournament = TournamentController.get_tournament(list_doc_id)
+        tournament = self._database.tournaments.get(doc_id = id_tournament)
+
+        for round in tournament["rounds"]:
+            self._viewtournament.display_round_tournament(round)
+            for indice, match in enumerate(round["matchs"], start=1):
+                self._viewreport.display_match(indice,
+                                               match["white_player"], 
+                                               match["black_player"], 
+                                               match["white_score"], 
+                                               match["black_player"])
         return True
 
         

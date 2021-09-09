@@ -143,9 +143,6 @@ class ReloadTournamentController:
         return True
 
 
-
-
-
 class TournamentController:
     """Gestion du tournoi"""
 
