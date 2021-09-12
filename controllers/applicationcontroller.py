@@ -70,7 +70,7 @@ class MenuController:
 
     def __call__(self):
         # Effacer l'écran.
-        #Clear().screen()
+        Clear().screen()
 
         # ADD MENUS.
         # IF A TOURNAMENT IN DATA BASE IS NOT FINISHED.

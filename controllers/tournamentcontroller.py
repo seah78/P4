@@ -3,7 +3,10 @@
 
 #from controllers.application_controller import HomeMenuController
 #from controllers.application_controller import HomeMenuController
+import datetime
+from pathlib import Path
 from datetime import datetime
+
 from tinydb import TinyDB, Query, where
 
 """Models"""
@@ -20,7 +23,7 @@ from controllers.playercontroller import PlayerController
 import utils.constants as constant
 from utils.clear import Clear
 
-
+"""
 list_player = [Player("Joueur" , "neuf", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
                Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
                Player("Joueur" , "dix", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
@@ -29,7 +32,7 @@ list_player = [Player("Joueur" , "neuf", (datetime.now().strftime("%d-%m-%Y")), 
                Player("Joueur" , "Six", (datetime.now().strftime("%d-%m-%Y")), "M", 1186),
                Player("Joueur" , "Gérard", (datetime.now().strftime("%d-%m-%Y")), "M", 1008),
                Player("Joueur" , "Robert", (datetime.now().strftime("%d-%m-%Y")), "M", 1498)]
-
+"""
     
 class CreateTournamentController:
     """ 
@@ -48,30 +51,28 @@ class CreateTournamentController:
     def __call__(self):
 
         self._tournament.name = self._tournament_controller.get_tournament_name()
-        self._tournament.place = "Test" #self._tournament_controller.get_tournament_place()
-        self._tournament.start_date = (datetime.now().strftime("%d-%m-%Y")) #self._tournament_controller.get_tournament_start_date()
-        self._tournament.end_date = "" # (datetime.now().strftime("%d-%m-%Y")) #self._tournament_controller.get_tournament_end_date()
+        self._tournament.place = self._tournament_controller.get_tournament_place()
+        self._tournament.start_date = (datetime.now().strftime("%d-%m-%Y"))
+        self._tournament.end_date = "" 
         self._tournament.total_rounds = constant.DEFAULT_ROUNDS
         self._tournament.counter_rounds = constant.COUNTER_ROUNDS
-        self._tournament.match_time = "Blitz" #self._tournament_controller.get_tournament_time()
-        self._tournament.description = "test" #self._tournament_controller.get_tournament_description()
+        self._tournament.match_time = self._tournament_controller.get_tournament_time()
+        self._tournament.description = self._tournament_controller.get_tournament_description()
         #self.tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
 
-        """
+        
         for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
             name = self._player_controller.get_player_name()
             first_name = self._player_controller.get_player_first_name()
             birth_date = self._player_controller.get_player_birth_date()
             gender = self._player_controller.get_player_gender()
-            ranking_elo = PlayerController.get_player_ranking_elo()
+            ranking_elo = self._player_controller.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self._tournament.add_player(player)
-        """
-        """Gérer l'enregistrement du joueur"""
-        """Controleur pour vérifier si un joueur existe déjà"""
+        
 
-        self._tournament.list_players = list_player
+        #self._tournament.list_players = list_player
         
         self.search_player()
 
@@ -93,15 +94,24 @@ class CreateTournamentController:
                     continue
             break
         self._database.save_tournament(self._tournament.serializer()) 
+        self.update_ranking_elo()
         return True
 
     def search_player(self):
-        search_player = Query()
+        """Recherche si un joueur existe déjà"""
+        path = Path("./utils/database.json")
+        if path.stat().st_size != 0:
+            search_player = Query()
+            for player in self._tournament.list_players:
+                if self._database.players.search(search_player.name ==  player.name and search_player.first_name == player.first_name):
+                    continue
+                else:
+                    self._database.save_player(player.serializer_player())
+                
+    def update_ranking_elo(self):
         for player in self._tournament.list_players:
-            if self._database.players.search(search_player.name ==  player.name and search_player.first_name == player.first_name):
-                continue
-            else:
-                self._database.save_player(player.serializer_player())
+            ranking_elo = PlayerController.get_player_ranking_elo()
+            self._database.update_player_rank(ranking_elo, player.name, player.first_name)
 
 class ReloadTournamentController:
     """
@@ -110,6 +120,7 @@ class ReloadTournamentController:
     def __init__(self, tournament):
         self._tournament = tournament
         self._tournament_controller = TournamentController()
+        self._player_controller = PlayerController()
         self._round_controller = RoundController()
         self._view = TournamentView()
         self._database = Database()
@@ -143,7 +154,13 @@ class ReloadTournamentController:
                     continue
             break
         self._database.update_tournament(self._tournament.serializer(), id_reload_tournament)
+        self.update_ranking_elo()
         return True
+
+    def update_ranking_elo(self):
+        for player in self._tournament.list_players:
+            ranking_elo = self._player_controller.get_player_ranking_elo()
+            self._database.update_player_rank(ranking_elo, player.name, player.first_name)
 
 
 class TournamentController:

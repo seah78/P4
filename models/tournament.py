@@ -2,7 +2,6 @@
 # coding: utf-8
 
 
-from controllers.tournamentcontroller import TournamentController
 from tinydb import TinyDB, Query, where
 
 from models.player import Player

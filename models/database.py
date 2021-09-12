@@ -23,11 +23,15 @@ class Database:
         """Mise à jour du tournoi"""
         search_tournament = self.tournaments.get(doc_id=id_tournament)
         name_tournament = search_tournament["name"]
-        print(name_tournament)
         Tournament = Query()
         self.tournaments.update(serializer, Tournament.name == name_tournament)
         
     def save_player(self, serializer):
         """Sauvegarde du joueur"""
         self.players.insert(serializer)
-    
+        
+    def update_player_rank(self, ranking_elo, name, first_name):
+        """Mise à jour du classement ELO"""
+        Player = Query()
+        self.players.update({"ranking_elo" : ranking_elo}, Player.name == name and Player.first_name == first_name )
+
