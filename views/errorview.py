@@ -3,7 +3,6 @@
 
 
 class ErrorView:
-
     @staticmethod
     def get_alpha_message_error(value):
         print(f"La valeur '{value}' doit être au format alphabétique")
@@ -19,7 +18,9 @@ class ErrorView:
     @staticmethod
     def get_menu_message_error():
         print("Choississez parmis les options proposées.")
-        
+
     @staticmethod
     def get_int_list_tournament_message_error():
-        print(f"L'entrée doit être un entier numérique inclus dans la liste des tournois")
+        print(
+            f"L'entrée doit être un entier numérique inclus dans la liste des tournois"
+        )

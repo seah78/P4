@@ -50,13 +50,17 @@ class TournamentView:
         print(f"Tournoi {doc_id} : {name}")
 
     @staticmethod
-    def display_all_items_list_tournament(doc_id, name, place, start_date, end_date, total_rounds):        
+    def display_all_items_list_tournament(
+        doc_id, name, place, start_date, end_date, total_rounds
+    ):
         """affichage de la liste des tournois avec les informations du tournoi"""
-        print(f"Tournoi {doc_id} : {name},"
-              f" Lieu : {place},"
-              f" Date de début : {start_date},"
-              f" Date de fin : {end_date},"
-              f" Nombre de rondes : {total_rounds}")
+        print(
+            f"Tournoi {doc_id} : {name},"
+            f" Lieu : {place},"
+            f" Date de début : {start_date},"
+            f" Date de fin : {end_date},"
+            f" Nombre de rondes : {total_rounds}"
+        )
 
     @staticmethod
     def display_place_tournament(place):
@@ -78,6 +82,8 @@ class TournamentView:
     @staticmethod
     def display_round_tournament(round):
         """Affichage des informations d'un round"""
-        print(f" Nom du round : '{round['name_round']}',"
-                  f" Date de début : '{round['start_timestamp']}',"
-                  f" Date de fin : '{round['end_timestamp']}'")
+        print(
+            f" Nom du round : '{round['name_round']}',"
+            f" Date de début : '{round['start_timestamp']}',"
+            f" Date de fin : '{round['end_timestamp']}'"
+        )

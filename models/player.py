@@ -1,12 +1,18 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-import datetime
-
 class Player:
-    """ Joueur """
+    """Joueur"""
 
-    def __init__(self, name=None, first_name=None, birth_date=None, gender=None, ranking_elo=0, score=0.0):
+    def __init__(
+        self,
+        name=None,
+        first_name=None,
+        birth_date=None,
+        gender=None,
+        ranking_elo=0,
+        score=0.0,
+    ):
         self.name = name
         self.first_name = first_name
         self.birth_date = birth_date
@@ -16,12 +22,17 @@ class Player:
         self.opponant = []
 
     def __str__(self):
-        return (f"Nom : {self.name} \nPrénom : {self.first_name} \nDate de naissance : {self.birth_date} \nSexe : {self.gender} \nClassement Elo : {self.ranking_elo} \nScore : {self.score}")
+        return {f"Nom : {self.name} \n"
+                f"Prénom : {self.first_name} \n"
+                f"Date de naissance : {self.birth_date} \n"
+                f"Sexe : {self.gender} \n"
+                "Classement Elo : {self.ranking_elo} \n"
+                f"Score : {self.score}"}
 
     """        
         def __repr__(self):
             pass
-    """        
+    """
 
     """Calcul de l'age """
 
@@ -40,17 +51,20 @@ class Player:
         pass
 
     def serializer(self):
-        return {"name" : self.name,
-                "first_name" : self.first_name,
-                "birth_date" : self.birth_date,
-                "gender" : self.gender,
-                "ranking_elo" : self.ranking_elo,
-                "score" : self.score }
-        
-    def serializer_player(self):
-        return {"name" : self.name,
-                "first_name" : self.first_name,
-                "birth_date" : self.birth_date,
-                "gender" : self.gender,
-                "ranking_elo" : self.ranking_elo}
+        return {
+            "name": self.name,
+            "first_name": self.first_name,
+            "birth_date": self.birth_date,
+            "gender": self.gender,
+            "ranking_elo": self.ranking_elo,
+            "score": self.score,
+        }
 
+    def serializer_player(self):
+        return {
+            "name": self.name,
+            "first_name": self.first_name,
+            "birth_date": self.birth_date,
+            "gender": self.gender,
+            "ranking_elo": self.ranking_elo,
+        }

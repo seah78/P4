@@ -1,13 +1,15 @@
 #! /usr/bin/env python3
 # coding: utf-8
-# 
+#
 
 """Models"""
 from os import stat
 from models.player import Player
+
 """Views"""
-from views.playerview import PlayerView 
+from views.playerview import PlayerView
 from views.errorview import ErrorView
+
 """Controllers"""
 
 """Utils"""
@@ -16,9 +18,8 @@ import utils.constants as constant
 
 import datetime
 
-    
-class PlayerController:    
 
+class PlayerController:
     @staticmethod
     def get_player_name():
         """Récupération du nom du joueur"""
@@ -44,7 +45,7 @@ class PlayerController:
         while not loop_valid_date:
             birth_date = PlayerView.get_birth_date_player()
             try:
-                birth_date = (datetime.datetime.strptime(birth_date, '%d-%m-%Y'))
+                datetime.datetime.strptime(birth_date, "%d-%m-%Y")
                 loop_valid_date = True
             except ValueError:
                 ErrorView.get_date_message_error()

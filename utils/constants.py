@@ -6,4 +6,3 @@ DEFAULT_ROUNDS = 4
 COUNTER_ROUNDS = 1
 MATCH_TIME = ["Bullet", "Blitz", "Coup rapide"]
 GENDER = ["Masculin", "Féminin"]
-

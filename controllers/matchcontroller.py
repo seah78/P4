@@ -3,9 +3,11 @@
 
 """Models"""
 from models.match import Match
+
 """Views"""
 from views.matchview import MatchView
 from views.errorview import ErrorView
+
 """Controllers"""
 
 """Utils"""
@@ -14,10 +16,6 @@ from views.errorview import ErrorView
 class MatchController:
     """Gestion des matchs"""
 
-    
-    
-    
-      
     @staticmethod
     def get_match_result(white_player, black_player):
         """récupération du résultat d'un match"""
@@ -34,7 +32,7 @@ class MatchController:
 
     @staticmethod
     def match_result(white_player, black_player):
-        """ enregistrement du score """
+        """enregistrement du score"""
         match_result = MatchController.get_match_result(white_player, black_player)
         if match_result == 1:
             white_score = 1.0
@@ -45,13 +43,10 @@ class MatchController:
         else:
             white_score = 0.0
             black_score = 1.0
-        """Ajout du score au player"""    
+        """Ajout du score au player"""
         white_player.score = white_player.score + white_score
         white_player.opponant.append(black_player)
         black_player.score = black_player.score + black_score
         black_player.opponant.append(white_player)
-        
-        print(white_player)
-        print(black_player)
-        
-        return  Match(white_player, black_player, white_score, black_score)
+
+        return Match(white_player, black_player, white_score, black_score)

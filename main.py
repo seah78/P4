@@ -3,8 +3,9 @@
 
 from controllers.applicationcontroller import ApplicationController
 
+
 def main():
-    
+
     app = ApplicationController()
     app.start()
 
