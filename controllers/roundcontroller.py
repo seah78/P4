@@ -3,16 +3,8 @@
 
 from datetime import datetime
 from views.roundview import RoundView
-
-"""Models"""
 from models.round import Round
-
-"""Views"""
-
-"""Controllers"""
 from controllers.matchcontroller import MatchController
-
-"""Utils"""
 
 
 class RoundController:

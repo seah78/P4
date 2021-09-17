@@ -1,16 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-"""Models"""
 from models.match import Match
-
-"""Views"""
 from views.matchview import MatchView
 from views.errorview import ErrorView
-
-"""Controllers"""
-
-"""Utils"""
 
 
 class MatchController:

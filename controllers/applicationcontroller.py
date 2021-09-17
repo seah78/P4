@@ -1,27 +1,19 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from tinydb import TinyDB, Query, where
-
-
-"""Models"""
+from tinydb import where
+from pathlib import Path
 from models.application import Menu
 from models.tournament import Tournament
 from models.database import Database
-
-"""Views"""
 from views.applicationview import MenuView
 from views.applicationview import ReportView
 from views.applicationview import EndView
 from views.errorview import ErrorView
 from views.tournamentview import TournamentView
-
-"""Controllers"""
 from controllers.tournamentcontroller import ReloadTournamentController
 from controllers.tournamentcontroller import CreateTournamentController
 from controllers.tournamentcontroller import TournamentController
-
-"""Utils"""
 from utils.clear import Clear
 
 
@@ -72,52 +64,90 @@ class MenuController:
         # Effacer l'écran.
         Clear().screen()
 
-        # ADD MENUS.
-        # IF A TOURNAMENT IN DATA BASE IS NOT FINISHED.
-
-        if self._database.tournaments.contains(where("end_date") == ""):
-            self._menu.add(
-                "auto",
-                "Créer un tournoi.",
-                CreateTournamentController(self._tournament),
-            )
-            self._menu.add(
-                "auto",
-                "Recharger un tournoi.",
-                ReloadTournamentController(self._tournament),
-            )
-            self._menu.add(
-                "auto",
-                "Liste des joueurs par ordre alphabétique",
-                ReportAlphaPlayersController(),
-            )
-            self._menu.add(
-                "auto",
-                "Liste des joueurs par classement ELO",
-                ReportRankPlayersController(),
-            )
-            self._menu.add(
-                "auto",
-                "Liste des joueurs d'un tournoi par par ordre alphabétique",
-                ReportTournamentAlphaPlayersController(),
-            )
-            self._menu.add(
-                "auto",
-                "Liste des joueurs d'un tournoi par classement ELO",
-                ReportTournamentRankPlayersController(),
-            )
-            self._menu.add("auto", "Liste des tournois", ReportTournamentController())
-            self._menu.add(
-                "auto",
-                "Liste des rondes d'un tournoi",
-                ReportRoundsTournamentController(),
-            )
-            self._menu.add(
-                "auto",
-                "Liste des matchs d'un tournoi",
-                ReportMatchTournamentController(),
-            )
-
+        """
+        Création du menu en fonction du contenu du fichier
+        """
+        path = Path("./utils/database.json")
+        if path.stat().st_size != 0:
+            if self._database.tournaments.contains(where("end_date") == ""):
+                self._menu.add(
+                    "auto",
+                    "Créer un tournoi.",
+                    CreateTournamentController(self._tournament),
+                )
+                self._menu.add(
+                    "auto",
+                    "Recharger un tournoi.",
+                    ReloadTournamentController(self._tournament),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs par ordre alphabétique",
+                    ReportAlphaPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs par classement ELO",
+                    ReportRankPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs d'un tournoi par par ordre alphabétique",
+                    ReportTournamentAlphaPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs d'un tournoi par classement ELO",
+                    ReportTournamentRankPlayersController(),
+                )
+                self._menu.add("auto", "Liste des tournois", ReportTournamentController())
+                self._menu.add(
+                    "auto",
+                    "Liste des rondes d'un tournoi",
+                    ReportRoundsTournamentController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des matchs d'un tournoi",
+                    ReportMatchTournamentController(),
+                )
+            else:
+                self._menu.add(
+                    "auto",
+                    "Créer un tournoi.",
+                    CreateTournamentController(self._tournament),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs par ordre alphabétique",
+                    ReportAlphaPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs par classement ELO",
+                    ReportRankPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs d'un tournoi par par ordre alphabétique",
+                    ReportTournamentAlphaPlayersController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des joueurs d'un tournoi par classement ELO",
+                    ReportTournamentRankPlayersController(),
+                )
+                self._menu.add("auto", "Liste des tournois", ReportTournamentController())
+                self._menu.add(
+                    "auto",
+                    "Liste des rondes d'un tournoi",
+                    ReportRoundsTournamentController(),
+                )
+                self._menu.add(
+                    "auto",
+                    "Liste des matchs d'un tournoi",
+                    ReportMatchTournamentController(),
+                )
         else:
             self._menu.add(
                 "auto",

@@ -1,9 +1,6 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-
-from tinydb import TinyDB, Query, where
-
 from models.player import Player
 from models.round import Round
 from models.match import Match

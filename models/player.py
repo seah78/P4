@@ -29,7 +29,7 @@ class Player:
                 "Classement Elo : {self.ranking_elo} \n"
                 f"Score : {self.score}"}
 
-    """        
+    """
         def __repr__(self):
             pass
     """

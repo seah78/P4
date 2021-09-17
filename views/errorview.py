@@ -22,5 +22,5 @@ class ErrorView:
     @staticmethod
     def get_int_list_tournament_message_error():
         print(
-            f"L'entrée doit être un entier numérique inclus dans la liste des tournois"
+            "L'entrée doit être un entier numérique inclus dans la liste des tournois"
         )

@@ -1,41 +1,20 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-# from controllers.application_controller import HomeMenuController
-# from controllers.application_controller import HomeMenuController
-import datetime
+# import datetime
 from pathlib import Path
 from datetime import datetime
+from tinydb import Query
 
-from tinydb import TinyDB, Query, where
-
-"""Models"""
 from models.player import Player
 from models.database import Database
-
-"""Views"""
 from views.tournamentview import TournamentView
 from views.playerview import PlayerView
 from views.errorview import ErrorView
-
-"""Controllers"""
 from controllers.roundcontroller import RoundController
 from controllers.playercontroller import PlayerController
-
-"""Utils"""
 import utils.constants as constant
 from utils.clear import Clear
-
-"""
-list_player = [Player("Joueur" , "neuf", (datetime.now().strftime("%d-%m-%Y")), "M", 1600), 
-               Player("Joueur" , "Deux", (datetime.now().strftime("%d-%m-%Y")), "M", 1705), 
-               Player("Joueur" , "dix", (datetime.now().strftime("%d-%m-%Y")), "M", 1499),
-               Player("Joueur" , "Quatre", (datetime.now().strftime("%d-%m-%Y")), "M", 999),
-               Player("Joueur" , "Cinq", (datetime.now().strftime("%d-%m-%Y")), "M", 1495),
-               Player("Joueur" , "Six", (datetime.now().strftime("%d-%m-%Y")), "M", 1186),
-               Player("Joueur" , "Gérard", (datetime.now().strftime("%d-%m-%Y")), "M", 1008),
-               Player("Joueur" , "Robert", (datetime.now().strftime("%d-%m-%Y")), "M", 1498)]
-"""
 
 
 class CreateTournamentController:
@@ -64,8 +43,7 @@ class CreateTournamentController:
         self._tournament.description = (
             self._tournament_controller.get_tournament_description()
         )
-        # self.tournament = Tournament(name, place, start_date, end_date, time, total_rounds, counter_rounds, description)
-
+        
         for counter in range(constant.DEFAULT_PLAYERS):
             PlayerView.display_counter_player(counter)
             name = self._player_controller.get_player_name()
@@ -75,10 +53,19 @@ class CreateTournamentController:
             ranking_elo = self._player_controller.get_player_ranking_elo()
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self._tournament.add_player(player)
-
-        # self._tournament.list_players = list_player
-
-        self.search_player()
+            
+            path = Path("./utils/database.json")
+            if path.stat().st_size != 0:
+                search_player = Query()
+                if self._database.players.search(
+                    search_player.name == player.name
+                    and search_player.first_name == player.first_name
+                ):
+                    continue
+                else:
+                    self._database.save_player(player.serializer_player())
+            else:
+                self._database.save_player(player.serializer_player())
 
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
             Clear.screen()
@@ -109,23 +96,9 @@ class CreateTournamentController:
                     continue
             break
         self._database.save_tournament(self._tournament.serializer())
-        if not self._tournament.end_date == "":  
+        if not self._tournament.end_date == "":
             self.update_ranking_elo()
         return True
-
-    def search_player(self):
-        """Recherche si un joueur existe déjà"""
-        path = Path("./utils/database.json")
-        if path.stat().st_size != 0:
-            search_player = Query()
-            for player in self._tournament.list_players:
-                if self._database.players.search(
-                    search_player.name == player.name
-                    and search_player.first_name == player.first_name
-                ):
-                    continue
-                else:
-                    self._database.save_player(player.serializer_player())
 
     def update_ranking_elo(self):
         for player in self._tournament.list_players:

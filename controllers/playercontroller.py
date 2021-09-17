@@ -2,21 +2,10 @@
 # coding: utf-8
 #
 
-"""Models"""
-from os import stat
-from models.player import Player
-
-"""Views"""
+import datetime
 from views.playerview import PlayerView
 from views.errorview import ErrorView
-
-"""Controllers"""
-
-"""Utils"""
 import utils.constants as constant
-
-
-import datetime
 
 
 class PlayerController:
