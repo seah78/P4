@@ -80,74 +80,43 @@ class MenuController:
                     "Recharger un tournoi.",
                     ReloadTournamentController(self._tournament),
                 )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs par ordre alphabétique",
-                    ReportAlphaPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs par classement ELO",
-                    ReportRankPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs d'un tournoi par par ordre alphabétique",
-                    ReportTournamentAlphaPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs d'un tournoi par classement ELO",
-                    ReportTournamentRankPlayersController(),
-                )
-                self._menu.add("auto", "Liste des tournois", ReportTournamentController())
-                self._menu.add(
-                    "auto",
-                    "Liste des rondes d'un tournoi",
-                    ReportRoundsTournamentController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des matchs d'un tournoi",
-                    ReportMatchTournamentController(),
-                )
             else:
                 self._menu.add(
                     "auto",
                     "Créer un tournoi.",
                     CreateTournamentController(self._tournament),
                 )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs par ordre alphabétique",
-                    ReportAlphaPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs par classement ELO",
-                    ReportRankPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs d'un tournoi par par ordre alphabétique",
-                    ReportTournamentAlphaPlayersController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des joueurs d'un tournoi par classement ELO",
-                    ReportTournamentRankPlayersController(),
-                )
-                self._menu.add("auto", "Liste des tournois", ReportTournamentController())
-                self._menu.add(
-                    "auto",
-                    "Liste des rondes d'un tournoi",
-                    ReportRoundsTournamentController(),
-                )
-                self._menu.add(
-                    "auto",
-                    "Liste des matchs d'un tournoi",
-                    ReportMatchTournamentController(),
-                )
+            self._menu.add(
+                "auto",
+                "Liste des joueurs par ordre alphabétique",
+                ReportAlphaPlayersController(),
+            )
+            self._menu.add(
+                "auto",
+                "Liste des joueurs par classement ELO",
+                ReportRankPlayersController(),
+            )
+            self._menu.add(
+                "auto",
+                "Liste des joueurs d'un tournoi par par ordre alphabétique",
+                ReportTournamentAlphaPlayersController(),
+            )
+            self._menu.add(
+                "auto",
+                "Liste des joueurs d'un tournoi par classement ELO",
+                ReportTournamentRankPlayersController(),
+            )
+            self._menu.add("auto", "Liste des tournois", ReportTournamentController())
+            self._menu.add(
+                "auto",
+                "Liste des rondes d'un tournoi",
+                ReportRoundsTournamentController(),
+            )
+            self._menu.add(
+                "auto",
+                "Liste des matchs d'un tournoi",
+                ReportMatchTournamentController(),
+            )
         else:
             self._menu.add(
                 "auto",
