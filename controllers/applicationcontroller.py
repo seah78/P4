@@ -6,7 +6,7 @@ from pathlib import Path
 from models.application import Menu
 from models.tournament import Tournament
 from models.database import Database
-from views.applicationview import MenuView
+from views.applicationview import MenuView, ReturnView
 from views.applicationview import ReportView
 from views.applicationview import EndView
 from views.errorview import ErrorView
@@ -150,10 +150,13 @@ class ReportAlphaPlayersController:
         self._view = ReportView()
 
     def __call__(self):
+        Clear().screen()
+
         alpha_player_list = sorted(self._database.players, key=lambda k: k["name"])
         self._view.display_report()
         for player in alpha_player_list:
             self._view.display_player(player)
+        ReturnController.menu_return()
 
         return True
 
@@ -168,12 +171,15 @@ class ReportRankPlayersController:
         self._view = ReportView()
 
     def __call__(self):
+        Clear().screen()
+
         rank_player_list = sorted(
             self._database.players, key=lambda k: k["ranking_elo"]
         )
         self._view.display_report()
         for player in rank_player_list:
             self._view.display_player(player)
+        ReturnController.menu_return()
         return True
 
 
@@ -188,6 +194,9 @@ class ReportTournamentAlphaPlayersController:
         self._viewtournament = TournamentView()
 
     def __call__(self):
+        
+        Clear().screen()
+
         list_doc_id = []
         for tournament in self._database.tournaments:
             self._viewtournament.display_list_tournament(
@@ -202,6 +211,7 @@ class ReportTournamentAlphaPlayersController:
         self._viewreport.display_report()
         for player in alpha_player_list:
             self._viewreport.display_player(player)
+        ReturnController.menu_return()
 
         return True
 
@@ -217,6 +227,9 @@ class ReportTournamentRankPlayersController:
         self._viewtournament = TournamentView()
 
     def __call__(self):
+        
+        Clear().screen()
+
         list_doc_id = []
         for tournament in self._database.tournaments:
             self._viewtournament.display_list_tournament(
@@ -231,6 +244,8 @@ class ReportTournamentRankPlayersController:
         self._viewreport.display_report()
         for player in rank_player_list:
             self._viewreport.display_player(player)
+        
+        ReturnController.menu_return()
 
         return True
 
@@ -246,6 +261,9 @@ class ReportTournamentController:
         self._viewtournament = TournamentView()
 
     def __call__(self):
+        
+        Clear().screen()
+
         self._viewreport.display_report()
         for tournament in self._database.tournaments:
             self._viewtournament.display_all_items_list_tournament(
@@ -256,6 +274,7 @@ class ReportTournamentController:
                 tournament["end_date"],
                 tournament["total_rounds"],
             )
+        ReturnController.menu_return()
 
         return True
 
@@ -271,6 +290,9 @@ class ReportRoundsTournamentController:
         self._viewtournament = TournamentView()
 
     def __call__(self):
+        
+        Clear().screen()
+
         list_doc_id = []
         for tournament in self._database.tournaments:
             self._viewtournament.display_list_tournament(
@@ -284,8 +306,9 @@ class ReportRoundsTournamentController:
         for round in tournament["rounds"]:
             self._viewtournament.display_round_tournament(round)
             for player in round["players"]:
-                self._viewreport.display_player(player)
+                self._viewreport.display_player_round(player)
 
+        ReturnController.menu_return()
         return True
 
 
@@ -300,6 +323,8 @@ class ReportMatchTournamentController:
         self._viewtournament = TournamentView()
 
     def __call__(self):
+        Clear().screen()
+
         list_doc_id = []
         for tournament in self._database.tournaments:
             self._viewtournament.display_list_tournament(
@@ -320,8 +345,20 @@ class ReportMatchTournamentController:
                     match["white_score"],
                     match["black_player"],
                 )
+        ReturnController.menu_return()
         return True
 
+class ReturnController:
+    """
+    Pour revenir au menu principal
+    """
+    @staticmethod    
+    def menu_return():
+        enter = ReturnView.return_menu()
+
+        while enter != "":
+            enter = ReturnView.return_menu()
+        return True
 
 class EndController:
     """

@@ -45,35 +45,12 @@ class CreateTournamentController:
             self._tournament_controller.get_tournament_description()
         )
         
-        for counter in range(constant.DEFAULT_PLAYERS):
-            PlayerView.display_counter_player(counter)
-            name = self._player_controller.get_player_name()
-            first_name = self._player_controller.get_player_first_name()
-            birth_date = self._player_controller.get_player_birth_date()
-            gender = self._player_controller.get_player_gender()
-            ranking_elo = self._player_controller.get_player_ranking_elo()
-            player = Player(name, first_name, birth_date, gender, ranking_elo)
-            self._tournament.add_player(player)
-            
-            path = Path("./utils/database.json")
-            if path.stat().st_size != 0:
-                search_player = Query()
-                if self._database.players.search(
-                    search_player.name == player.name
-                    and search_player.first_name == player.first_name
-                ):
-                    continue
-                else:
-                    self._database.save_player(player.serializer_player())
-            else:
-                self._database.save_player(player.serializer_player())
+        self.add_player_tournament()
 
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
             Clear.screen()
 
-            print(
-                f"counter rounds {self._tournament.counter_rounds}, total rounds {self._tournament.total_rounds}"
-            )
+
             if self._tournament.counter_rounds == 1:
                 self._tournament.add_round(
                     self._round_controller.first_round(
@@ -100,6 +77,31 @@ class CreateTournamentController:
         if not self._tournament.end_date == "":
             self.update_ranking_elo()
         return True
+
+    def add_player_tournament(self):
+        Clear.screen()
+        for counter in range(constant.DEFAULT_PLAYERS):
+            PlayerView.display_counter_player(counter)
+            name = self._player_controller.get_player_name()
+            first_name = self._player_controller.get_player_first_name()
+            birth_date = self._player_controller.get_player_birth_date()
+            gender = self._player_controller.get_player_gender()
+            ranking_elo = self._player_controller.get_player_ranking_elo()
+            player = Player(name, first_name, birth_date, gender, ranking_elo)
+            self._tournament.add_player(player)
+            
+            path = Path("./utils/database.json")
+            if path.stat().st_size != 0:
+                search_player = Query()
+                if self._database.players.search(
+                    search_player.name == player.name
+                    and search_player.first_name == player.first_name
+                ):
+                    continue
+                else:
+                    self._database.save_player(player.serializer_player())
+            else:
+                self._database.save_player(player.serializer_player())
 
     def update_ranking_elo(self):
         for player in self._tournament.list_players:
@@ -274,4 +276,3 @@ class TournamentController:
         pass
 
 
-# Recherche sur la fonction zip

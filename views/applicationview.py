@@ -38,7 +38,7 @@ class MenuView:
 class ReportView:
     @staticmethod
     def display_report():
-        print("Affichage du rapport")
+        print("\nAffichage du rapport")
 
     @staticmethod
     def display_player(player):
@@ -48,6 +48,14 @@ class ReportView:
             f" DATE DE NAISSANCE : '{player['birth_date']}',"
             f" SEXE : '{player['gender']}',"
             f" CLASSEMENT GÉNÉRAL : '{player['ranking_elo']}'."
+        )
+        
+    @staticmethod
+    def display_player_round(player):
+        print(
+            f" NOM : '{player['name']}',"
+            f" PRÉNOM : '{player['first_name']}',"
+            f" SCORE : '{player['score']}'."
         )
 
     @staticmethod
@@ -62,10 +70,14 @@ class ReportView:
 class ReturnView:
     @staticmethod
     def display_return():
-        print("Retour au menu principal")
+        print("\nRetour au menu principal")
+    
+    @staticmethod    
+    def return_menu():
+        return input("\nAppuyez sur [Enter] pour retourner au menu principal")
 
 
 class EndView:
     @staticmethod
     def quit():
-        print("Au revoir")
+        print("\nAu revoir")

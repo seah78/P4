@@ -34,4 +34,4 @@ class PlayerView:
     def display_counter_player(counter):
         """affiche le numéro du joueur pour l'ajout"""
         counter += 1
-        print(f"Ajout du joueur {counter}")
+        print(f"\nAjout du joueur {counter}")
