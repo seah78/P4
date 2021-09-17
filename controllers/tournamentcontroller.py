@@ -168,7 +168,8 @@ class ReloadTournamentController:
         self._database.update_tournament(
             self._tournament.serializer(), id_reload_tournament
         )
-        self.update_ranking_elo()
+        if not self._tournament.end_date == "":
+            self.update_ranking_elo()
         return True
 
     def update_ranking_elo(self):

@@ -343,7 +343,7 @@ class ReportMatchTournamentController:
                     match["white_player"],
                     match["black_player"],
                     match["white_score"],
-                    match["black_player"],
+                    match["black_score"],
                 )
         ReturnController.menu_return()
         return True
