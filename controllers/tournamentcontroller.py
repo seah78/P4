@@ -32,6 +32,7 @@ class CreateTournamentController:
         self._database = Database()
 
     def __call__(self):
+        Clear.screen()
 
         self._tournament.name = self._tournament_controller.get_tournament_name()
         self._tournament.place = self._tournament_controller.get_tournament_place()
