@@ -8,7 +8,7 @@ class MatchView:
     @staticmethod
     def get_result_match(white_player, black_player):
         """Résultat du match"""
-        print("############")
+        print("\n############")
         return int(
             input(
                 f"Blanc: \n{white_player.name} {white_player.first_name} \n\n"

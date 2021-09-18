@@ -47,6 +47,7 @@ class RoundController:
         return self.round
 
     def next_round(self, tournament_list_players, counter_rounds):
+        self.list_match = []
         name = RoundController.get_name_round(counter_rounds)
         start_timestamp = datetime.now().strftime("%d-%m-%Y")
         RoundView.display_name_round(name)
@@ -67,7 +68,6 @@ class RoundController:
             self.list_match.append(
                 MatchController.match_result(player_white, player_black)
             )
-
             del players[0]
             del players[i]
 
