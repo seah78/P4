@@ -47,6 +47,7 @@ class RoundController:
         return self.round
 
     def next_round(self, tournament_list_players, counter_rounds):
+
         self.list_match = []
         name = RoundController.get_name_round(counter_rounds)
         start_timestamp = datetime.now().strftime("%d-%m-%Y")
@@ -54,7 +55,7 @@ class RoundController:
 
         """Vérification des paires de joueurs"""
         players = RoundController.get_player(tournament_list_players)
-        self.round.add_player(players)
+        list_players = players
 
         i = 0
         while len(players) > 0:
@@ -64,6 +65,7 @@ class RoundController:
             while player_black.ranking_elo in player_white.opponant:
                 i += 1
                 player_black = players[i + 1]
+
 
             self.list_match.append(
                 MatchController.match_result(player_white, player_black)
@@ -79,7 +81,7 @@ class RoundController:
         list_ranking = sorted(players, key=lambda player: player.score)
 
         self.round = Round(name, start_timestamp, end_timestamp)
-        # self.round.add_player(list_players)
+        self.round.add_player(list_players)
         self.round.add_ranking(list_ranking)
         self.round.add_match(self.list_match)
         return self.round

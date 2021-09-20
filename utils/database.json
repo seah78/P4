@@ -12,59 +12,59 @@
             "first_name": "deux",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 32
+            "ranking_elo": 22
         },
         "3": {
             "name": "test",
             "first_name": "trois",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 43
+            "ranking_elo": 23
         },
         "4": {
             "name": "test",
             "first_name": "quatre",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 54
+            "ranking_elo": 24
         },
         "5": {
             "name": "test",
             "first_name": "cinq",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 65
+            "ranking_elo": 25
         },
         "6": {
             "name": "test",
             "first_name": "six",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 76
+            "ranking_elo": 26
         },
         "7": {
             "name": "test",
             "first_name": "sept",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 87
+            "ranking_elo": 27
         },
         "8": {
             "name": "test",
             "first_name": "huit",
             "birth_date": "01-01-2020",
             "gender": "Masculin",
-            "ranking_elo": 98
+            "ranking_elo": 28
         }
     },
     "tournaments": {
         "1": {
-            "name": "test match",
+            "name": "test enregistrement jouer",
             "place": "test",
             "start_date": "18-09-2021",
-            "end_date": "18-09-2021",
+            "end_date": "",
             "total_rounds": 4,
-            "counter_rounds": 4,
+            "counter_rounds": 3,
             "rounds": [
                 {
                     "name_round": "Round 1",
@@ -77,7 +77,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 10,
-                            "score": 2.0
+                            "score": 1.0
                         },
                         {
                             "name": "test",
@@ -85,7 +85,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 20,
-                            "score": 2.0
+                            "score": 1.0
                         },
                         {
                             "name": "test",
@@ -93,7 +93,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 30,
-                            "score": 3.0
+                            "score": 1.0
                         },
                         {
                             "name": "test",
@@ -101,7 +101,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 40,
-                            "score": 4.0
+                            "score": 1.0
                         },
                         {
                             "name": "test",
@@ -117,7 +117,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 60,
-                            "score": 1.0
+                            "score": 0.0
                         },
                         {
                             "name": "test",
@@ -125,7 +125,7 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 70,
-                            "score": 2.0
+                            "score": 0.0
                         },
                         {
                             "name": "test",
@@ -133,70 +133,6 @@
                             "birth_date": "01-01-2020",
                             "gender": "Masculin",
                             "ranking_elo": 80,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "quatre",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 40,
-                            "score": 4.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "trois",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 30,
-                            "score": 3.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "deux",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 20,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "un",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 10,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "huit",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 80,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "sept",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 70,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "six",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 60,
-                            "score": 1.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "cinq",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 50,
                             "score": 0.0
                         }
                     ],
@@ -208,7 +144,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 10,
-                                "score": 2.0
+                                "score": 1.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -228,7 +164,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 20,
-                                "score": 2.0
+                                "score": 1.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -236,7 +172,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 60,
-                                "score": 1.0
+                                "score": 0.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -248,7 +184,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 30,
-                                "score": 3.0
+                                "score": 1.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -256,7 +192,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 70,
-                                "score": 2.0
+                                "score": 0.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -268,7 +204,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 40,
-                                "score": 4.0
+                                "score": 1.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -276,7 +212,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 80,
-                                "score": 2.0
+                                "score": 0.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -286,313 +222,7 @@
                 {
                     "name_round": "Round 2",
                     "start_timestamp": "18-09-2021",
-                    "end_timestamp": "18-09-2021",
-                    "players": [
-                        {
-                            "name": "test",
-                            "first_name": "quatre",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 40,
-                            "score": 4.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "deux",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 20,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "huit",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 80,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "six",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 60,
-                            "score": 1.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "trois",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 30,
-                            "score": 3.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "un",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 10,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "sept",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 70,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "cinq",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 50,
-                            "score": 0.0
-                        }
-                    ],
-                    "matchs": [
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "quatre",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 40,
-                                "score": 4.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "trois",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 30,
-                                "score": 3.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "deux",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 20,
-                                "score": 2.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "un",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 10,
-                                "score": 2.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "huit",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 80,
-                                "score": 2.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "sept",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 70,
-                                "score": 2.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "six",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 60,
-                                "score": 1.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "cinq",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 50,
-                                "score": 0.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        }
-                    ]
-                },
-                {
-                    "name_round": "Round 3",
-                    "start_timestamp": "18-09-2021",
-                    "end_timestamp": "18-09-2021",
-                    "players": [
-                        {
-                            "name": "test",
-                            "first_name": "quatre",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 40,
-                            "score": 4.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "huit",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 80,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "trois",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 30,
-                            "score": 3.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "deux",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 20,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "sept",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 70,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "six",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 60,
-                            "score": 1.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "un",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 10,
-                            "score": 2.0
-                        },
-                        {
-                            "name": "test",
-                            "first_name": "cinq",
-                            "birth_date": "01-01-2020",
-                            "gender": "Masculin",
-                            "ranking_elo": 50,
-                            "score": 0.0
-                        }
-                    ],
-                    "matchs": [
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "quatre",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 40,
-                                "score": 4.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "deux",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 20,
-                                "score": 2.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "huit",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 80,
-                                "score": 2.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "six",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 60,
-                                "score": 1.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "trois",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 30,
-                                "score": 3.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "un",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 10,
-                                "score": 2.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        },
-                        {
-                            "white_player": {
-                                "name": "test",
-                                "first_name": "sept",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 70,
-                                "score": 2.0
-                            },
-                            "black_player": {
-                                "name": "test",
-                                "first_name": "cinq",
-                                "birth_date": "01-01-2020",
-                                "gender": "Masculin",
-                                "ranking_elo": 50,
-                                "score": 0.0
-                            },
-                            "white_score": 1.0,
-                            "black_score": 0.0
-                        }
-                    ]
-                },
-                {
-                    "name_round": "Round 4",
-                    "start_timestamp": "18-09-2021",
-                    "end_timestamp": "18-09-2021",
+                    "end_timestamp": "19-09-2021",
                     "players": [],
                     "matchs": [
                         {
@@ -602,7 +232,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 40,
-                                "score": 4.0
+                                "score": 8.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -610,7 +240,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 80,
-                                "score": 2.0
+                                "score": 4.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -622,7 +252,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 30,
-                                "score": 3.0
+                                "score": 5.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -630,7 +260,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 20,
-                                "score": 2.0
+                                "score": 4.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -642,7 +272,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 70,
-                                "score": 2.0
+                                "score": 4.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -650,7 +280,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 60,
-                                "score": 1.0
+                                "score": 3.0
                             },
                             "white_score": 1.0,
                             "black_score": 0.0
@@ -662,7 +292,7 @@
                                 "birth_date": "01-01-2020",
                                 "gender": "Masculin",
                                 "ranking_elo": 10,
-                                "score": 2.0
+                                "score": 4.0
                             },
                             "black_player": {
                                 "name": "test",
@@ -685,7 +315,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 10,
-                    "score": 2.0
+                    "score": 4.0
                 },
                 {
                     "name": "test",
@@ -693,7 +323,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 20,
-                    "score": 2.0
+                    "score": 4.0
                 },
                 {
                     "name": "test",
@@ -701,7 +331,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 30,
-                    "score": 3.0
+                    "score": 5.0
                 },
                 {
                     "name": "test",
@@ -709,7 +339,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 40,
-                    "score": 4.0
+                    "score": 8.0
                 },
                 {
                     "name": "test",
@@ -725,7 +355,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 60,
-                    "score": 1.0
+                    "score": 3.0
                 },
                 {
                     "name": "test",
@@ -733,7 +363,7 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 70,
-                    "score": 2.0
+                    "score": 4.0
                 },
                 {
                     "name": "test",
@@ -741,11 +371,11 @@
                     "birth_date": "01-01-2020",
                     "gender": "Masculin",
                     "ranking_elo": 80,
-                    "score": 2.0
+                    "score": 4.0
                 }
             ],
             "match_time": "Bullet",
-            "description": "test enregistrement match"
+            "description": "test de l'enregistrement des joueurs dans un round"
         }
     }
 }
