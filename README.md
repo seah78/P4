@@ -1,5 +1,71 @@
-# P4
+# Logiciel de gestion d'un tournoi d'échec
 
-Projet 4 : Développez un programme logiciel en Python
+# Scraping du site Books to Scrape
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
+
+Gestion de tournoi d'échecs selon le système suisse
+
+### Pré-requis
+
+- Python 3.9
+- Terminal
+- Git
+
+### Installation
+
+Installer Python 3.9 depuis https://www.python.org/
+
+Lancer le terminal
+
+Téléchargez le repository en utilisant la commande suivante :
+	`git clone https://github.com/seah78/P4.git`
+
+Positionnez-vous dans le répertoire de l'application en utilisant la commande suivante :
+	`cd P4`
+
+Activez l'environnement virtuel en utilisant les commandes suivantes :
+
+	`python3 -m venv env`
+	`source env/bin/activate`
+
+Installez les modules nécessaire au fonctionnement de l'application en utlisant la commande suivante :
+
+	`pip3 install -r requirements.txt`
+
+Vérifiez l'installation des modules en exécutant la commande suivante :
+
+	`pip3 freeze`
+
+## Démarrage
+
+Depuis un terminal MAC / Linux, lancer la commande : `python3 main.py`
+Depuis un terminal Windows, lancer la commande : `py main.py
+
+## Résultat
+
+Le résultat s'affiche directement à l'écran.
+Suivez les instructions à l'écran
+
+Le rapport PEP
 
 Ajouter au readme comment faire un nouveau rapport flake8
+
+
+## Fabriqué avec
+
+* Visual Studio Code
+
+## Versions
+
+Version actuelle : 1.0.0
+Liste des versions : [Cliquer pour afficher](https://github.com/seah78/P4/tags)
+
+## Auteurs
+
+* ** Sébastien HERLANT ** _alias_ [@seah78](https://github.com/seah78)
+
+## License
+
+Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
+
