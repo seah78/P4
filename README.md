@@ -47,9 +47,11 @@ Depuis un terminal Windows, lancer la commande : `py main.py
 Le résultat s'affiche directement à l'écran.
 Suivez les instructions à l'écran
 
-Le rapport PEP
+## PEP8
 
-Ajouter au readme comment faire un nouveau rapport flake8
+Un fichier de configuration .flake8 contient le nombre de caractères autorisé par ligne.
+
+Pour mettre à jour le rapport PEP8, utilisez la commande : flake8 --format=html --htmldir=flake-report
 
 
 ## Fabriqué avec

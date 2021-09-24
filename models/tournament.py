@@ -91,8 +91,9 @@ class Tournament:
                 player["birth_date"],
                 player["gender"],
                 player["ranking_elo"],
-                player["score"],
-            )  # ajouter oppoant
+                player["score"]
+            ) 
+            reload_player.set_opponant(player["opponant"])
             reload_tournament.add_player(reload_player)
         player_list = []
         ranking_list = []

@@ -26,29 +26,12 @@ class Player:
                 f"Prénom : {self.first_name} \n"
                 f"Date de naissance : {self.birth_date} \n"
                 f"Sexe : {self.gender} \n"
-                "Classement Elo : {self.ranking_elo} \n"
+                f"Classement Elo : {self.ranking_elo} \n"
                 f"Score : {self.score}"}
 
-    """
-        def __repr__(self):
-            pass
-    """
-
-    """Calcul de l'age """
-
-    """
-    def age(self):
-        if self.birth_date > datetime.date.today().replace(year = self.birth_date.year):
-            return datetime.date.today().year - self.birth_date.year - 1
-        else:
-            return datetime.date.today().year - self.birth_date.year
-    """
-
-    def update_ranking(self):
-        pass
-
-    def update_score(self):
-        pass
+    def set_opponant(self, opponant):
+        self.opponant = opponant
+    
 
     def serializer(self):
         return {
@@ -58,6 +41,7 @@ class Player:
             "gender": self.gender,
             "ranking_elo": self.ranking_elo,
             "score": self.score,
+            "opponant" : self.opponant
         }
 
     def serializer_player(self):

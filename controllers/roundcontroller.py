@@ -55,7 +55,7 @@ class RoundController:
 
         """Vérification des paires de joueurs"""
         players = RoundController.get_player(tournament_list_players)
-        list_players = players
+        list_players = players.copy()
 
         i = 0
         while len(players) > 0:
