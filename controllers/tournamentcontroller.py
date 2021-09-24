@@ -75,6 +75,8 @@ class CreateTournamentController:
             break
         self._database.save_tournament(self._tournament.serializer())
         if not self._tournament.end_date == "":
+            Clear.screen()
+            PlayerView.update_rank_player()
             self.update_ranking_elo()
         return True
 
@@ -105,7 +107,7 @@ class CreateTournamentController:
 
     def update_ranking_elo(self):
         for player in self._tournament.list_players:
-            ranking_elo = PlayerController.get_player_ranking_elo()
+            ranking_elo = PlayerController.get_player_ranking_elo(player.name, player.first_name)
             self._database.update_player_rank(
                 ranking_elo, player.name, player.first_name
             )
@@ -140,9 +142,7 @@ class ReloadTournamentController:
         while self._tournament.counter_rounds != self._tournament.total_rounds + 1:
             Clear.screen()
 
-            print(
-                f"counter rounds {self._tournament.counter_rounds}, total rounds {self._tournament.total_rounds}"
-            )
+
             if self._tournament.counter_rounds == 1:
                 self._tournament.add_round(
                     self._round_controller.first_round(
@@ -174,7 +174,7 @@ class ReloadTournamentController:
 
     def update_ranking_elo(self):
         for player in self._tournament.list_players:
-            ranking_elo = self._player_controller.get_player_ranking_elo()
+            ranking_elo = PlayerController.get_player_ranking_elo(player.name, player.first_name)
             self._database.update_player_rank(
                 ranking_elo, player.name, player.first_name
             )

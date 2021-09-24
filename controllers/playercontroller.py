@@ -56,11 +56,11 @@ class PlayerController:
         return constant.GENDER[gender - 1]
 
     @staticmethod
-    def get_player_ranking_elo():
+    def get_player_ranking_elo(name, first_name):
         """Récupération du classement elo"""
         while True:
             try:
-                ranking_elo = PlayerView.get_ranking_elo_player()
+                ranking_elo = PlayerView.get_ranking_elo_player(name, first_name)
                 if ranking_elo <= 0:
                     raise ValueError
             except ValueError:

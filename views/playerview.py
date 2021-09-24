@@ -26,12 +26,17 @@ class PlayerView:
         return int(input("Saisissez le sexe du joueur (1 - Masculin / 2 - Féminin): "))
 
     @staticmethod
-    def get_ranking_elo_player():
+    def get_ranking_elo_player(name, first_name):
         """classement elo du joueur"""
-        return int(input("Saisissez le classement elo du joueur : "))
+        return int(input(f"Saisissez le classement elo du joueur {first_name} {name}: "))
 
     @staticmethod
     def display_counter_player(counter):
         """affiche le numéro du joueur pour l'ajout"""
         counter += 1
         print(f"\nAjout du joueur {counter}")
+        
+    @staticmethod
+    def update_rank_player():
+        """ affiche une information """
+        print("\nMise à jour des classements des joueurs")
