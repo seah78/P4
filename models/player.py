@@ -41,7 +41,7 @@ class Player:
             "gender": self.gender,
             "ranking_elo": self.ranking_elo,
             "score": self.score,
-            "opponant" : self.opponant
+            #"opponant": self.opponant
         }
 
     def serializer_player(self):

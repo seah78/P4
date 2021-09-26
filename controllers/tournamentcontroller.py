@@ -88,7 +88,7 @@ class CreateTournamentController:
             first_name = self._player_controller.get_player_first_name()
             birth_date = self._player_controller.get_player_birth_date()
             gender = self._player_controller.get_player_gender()
-            ranking_elo = self._player_controller.get_player_ranking_elo(name, first_name)
+            ranking_elo = self._player_controller.get_player_ranking_elo("", "")
             player = Player(name, first_name, birth_date, gender, ranking_elo)
             self._tournament.add_player(player)
             
