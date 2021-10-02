@@ -62,7 +62,7 @@ class RoundController:
             player_white = players[i]
             player_black = players[i + 1]
 
-            while player_black.ranking_elo in player_white.opponant:
+            while player_black.id_player in player_white.opponant:
                 i += 1
                 player_black = players[i + 1]
 

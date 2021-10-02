@@ -91,7 +91,9 @@ class Tournament:
                 player["birth_date"],
                 player["gender"],
                 player["ranking_elo"],
-                player["score"]
+                player["score"],
+                player["opponant"],
+                player["id_player"],
             ) 
             reload_player.set_opponant(player["opponant"])
             reload_tournament.add_player(reload_player)
@@ -108,6 +110,8 @@ class Tournament:
                         player_round["gender"],
                         player_round["ranking_elo"],
                         player_round["score"],
+                        player["opponant"],
+                        player["id_player"],
                     )
                 )
             for match_round in round["matchs"]:
@@ -143,4 +147,6 @@ class Tournament:
             player["gender"],
             player["ranking_elo"],
             player["score"],
+            player["opponant"],
+            player["id_player"],
         )

@@ -12,6 +12,8 @@ class Player:
         gender=None,
         ranking_elo=0,
         score=0.0,
+        opponant=[],
+        id_player=None
     ):
         self.name = name
         self.first_name = first_name
@@ -19,7 +21,8 @@ class Player:
         self.gender = gender
         self.ranking_elo = ranking_elo
         self.score = score
-        self.opponant = []
+        self.opponant = opponant
+        self.id_player=id_player
 
     def __str__(self):
         return {f"Nom : {self.name} \n"
@@ -41,7 +44,8 @@ class Player:
             "gender": self.gender,
             "ranking_elo": self.ranking_elo,
             "score": self.score,
-            #"opponant": self.opponant
+            "opponant": self.opponant,
+            "id_player": self.id_player,
         }
 
     def serializer_player(self):

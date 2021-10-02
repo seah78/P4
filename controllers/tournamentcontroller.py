@@ -89,7 +89,9 @@ class CreateTournamentController:
             birth_date = self._player_controller.get_player_birth_date()
             gender = self._player_controller.get_player_gender()
             ranking_elo = self._player_controller.get_player_ranking_elo("", "")
-            player = Player(name, first_name, birth_date, gender, ranking_elo)
+            score = 0.0
+            id_player = name + first_name
+            player = Player(name, first_name, birth_date, gender, ranking_elo, score,[], id_player)
             self._tournament.add_player(player)
             
             path = Path("./utils/database.json")
