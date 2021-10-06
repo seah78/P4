@@ -67,7 +67,5 @@ Liste des versions : [Cliquer pour afficher](https://github.com/seah78/P4/tags)
 
 * ** Sébastien HERLANT ** _alias_ [@seah78](https://github.com/seah78)
 
-## License
 
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
 

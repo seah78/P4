@@ -64,8 +64,11 @@ class RoundController:
 
             while player_black.id_player in player_white.opponant:
                 i += 1
-                player_black = players[i + 1]
-
+                try :
+                    player_black = players[i + 1]
+                except IndexError :
+                    player_white = players[0]
+                    player_black = players[1]
 
             self.list_match.append(
                 MatchController.match_result(player_white, player_black)
